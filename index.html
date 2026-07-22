@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Care & Bloom — The House That Health Built</title>
+<meta name="description" content="Care & Bloom is a brand house building the future of health, pleasure, longevity, education, culture, and mind.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&family=Sora:wght@300;400;500&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js"></script>
+<style>
+@font-face{
+  font-family:'PP Editorial New';
+  src:url('PPEditorialNew-Ultralight.otf') format('opentype');
+  font-weight:200;
+  font-style:normal;
+  font-display:swap;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#1A1A3E;
+  --bg-mid:#1A1A3E;
+  --bg-card:#1A1A3E;
+  --card-bg:rgba(255,255,255,0.04);
+  --card-border:rgba(255,255,255,0.07);
+  --accent:#FF7F5C;
+  --gold:#FF7F5C;
+  --cream:#F5F0FF;
+  --dim:rgba(245,240,255,0.35);
+  --body-text:rgba(245,240,255,0.55);
+  --pleasure:#FF6B35;
+  --longevity:#06D6A0;
+  --education:#FFD23F;
+  --culture:#E879F9;
+  --mind:#7C9CF5;
+  --royal:#4C1D95;
+  --display:'PP Editorial New', 'Instrument Serif', Georgia, serif;
+  --body:'Inter', sans-serif;
+  --type-hero:   clamp(3rem, 6vw, 4.5rem);
+  --type-h2:     clamp(2.25rem, 4vw, 3.375rem);
+  --type-h3:     clamp(1.5rem, 2.5vw, 2.531rem);
+  --type-body:   1rem;
+  --type-label:  0.75rem;
+  --type-small:  0.625rem;
+  --space-section: clamp(80px, 12vw, 160px);
+  --space-block:   clamp(40px, 6vw, 80px);
+  --space-element: 32px;
+  --space-tight:   16px;
+  --space-micro:   8px;
+}
+html{background:var(--bg);overflow-x:hidden}
+body{font-family:var(--body);color:var(--cream);background:var(--bg);overflow-x:hidden;cursor:none}
+body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(170deg,#242050 0%,#1A1A3E 40%,#141230 100%);z-index:-1;pointer-events:none}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{cursor:none}
+.grain{position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:9999;opacity:0.035}
+.grain svg{width:100%;height:100%}
+@media(max-width:768px){.grain{display:none!important}}
+.cursor{position:fixed;top:0;left:0;width:12px;height:12px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:10000;mix-blend-mode:difference;will-change:transform}
+.cursor.expand{transform:translate(-50%,-50%) scale(4);opacity:.45}
+@media(hover:none){.cursor{display:none!important}body{cursor:auto}}
+.label{font-family:var(--body);font-size:var(--type-label);letter-spacing:3px;text-transform:uppercase;color:var(--dim);font-weight:400}
+.headline{font-family:var(--display);font-style:italic;font-weight:400;color:var(--cream);letter-spacing:-0.02em;line-height:1.05}
+.body-text{font-family:var(--body);font-weight:300;color:var(--body-text);line-height:1.6;font-size:var(--type-body);max-width:65ch}
+.struck{text-decoration:line-through;opacity:.4}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:20px clamp(24px,5vw,60px);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);background:rgba(5,5,5,.55);border-bottom:1px solid var(--card-border)}
+@media(max-width:768px){nav{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);background:rgba(5,5,5,.8)}}
+nav .logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:17px;letter-spacing:0.5px;color:var(--cream);text-decoration:none}
+nav .logo .bloom-mark{width:28px;height:28px;position:relative;flex-shrink:0}
+nav .logo .bloom-mark .petal{position:absolute;width:11px;height:11px;border-radius:50% 50% 50% 0}
+nav .logo .bloom-mark .petal:nth-child(1){top:0;left:8px;background:var(--accent);transform:rotate(0deg)}
+nav .logo .bloom-mark .petal:nth-child(2){top:8px;right:0;background:var(--accent);opacity:0.75;transform:rotate(90deg)}
+nav .logo .bloom-mark .petal:nth-child(3){bottom:0;left:8px;background:var(--accent);opacity:0.5;transform:rotate(180deg)}
+nav .logo .bloom-mark .petal:nth-child(4){top:8px;left:0;background:var(--accent);opacity:0.6;transform:rotate(270deg)}
+nav .logo .bloom-mark .bloom-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:5px;height:5px;border-radius:50%;background:var(--gold)}
+nav .logo .logo-amp{font-family:var(--display);font-style:italic;color:var(--accent)}
+nav .nav-links{display:flex;align-items:center;gap:32px}
+nav .nav-links a{font-family:var(--body);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--dim);transition:color .3s}
+nav .nav-links a:hover{color:var(--cream)}
+nav .cta-pill{border:1px solid var(--gold);color:var(--gold);padding:8px 20px;border-radius:999px;font-size:11px;letter-spacing:2px;text-transform:uppercase;transition:all .3s}
+nav .cta-pill:hover{background:var(--gold);color:var(--bg)}
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:0 24px}
+.hero-blob{position:absolute;width:clamp(300px,50vw,700px);height:clamp(300px,50vw,700px);background:radial-gradient(circle, var(--gold) 0%, rgba(72,191,227,0.3) 40%, transparent 70%);opacity:.10;filter:blur(120px);z-index:0;animation:morphBlob 12s ease-in-out infinite;will-change:transform}
+@media(max-width:768px){.hero-blob{filter:blur(80px);animation:none;opacity:.08}}
+@keyframes morphBlob{0%,100%{border-radius:40% 60% 60% 40%/60% 40% 60% 40%;transform:scale(1) rotate(0deg)}33%{border-radius:50% 50% 40% 60%/50% 60% 50% 40%;transform:scale(1.08) rotate(20deg)}66%{border-radius:60% 40% 50% 50%/40% 50% 60% 50%;transform:scale(1.12) rotate(35deg)}}
+.hero-tag{position:relative;z-index:1;margin-bottom:24px}
+.hero h1{position:relative;z-index:1;font-size:clamp(4rem,12vw,10rem);line-height:.92;letter-spacing:-0.03em}
+.hero h1 .line{display:block;opacity:0;transform:translateY(50px)}
+.hero-sub{position:relative;z-index:1;max-width:600px;margin-top:32px;opacity:0;transform:translateY(24px)}
+.scroll-indicator{position:absolute;bottom:32px;z-index:1;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0}
+.scroll-indicator span{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--dim)}
+.scroll-indicator .arrow{width:1px;height:40px;background:linear-gradient(to bottom, var(--gold), transparent);animation:scrollPulse 2s ease-in-out infinite}
+@keyframes scrollPulse{0%,100%{opacity:.3;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.3)}}
+.marquee-section{border-top:1px solid var(--card-border);border-bottom:1px solid var(--card-border);padding:20px 0;overflow:hidden}
+.marquee-row{display:flex;width:max-content;white-space:nowrap;animation:marqueeScroll 35s linear infinite;will-change:transform}
+.marquee-row.reverse{animation-direction:reverse}
+.marquee-row span{font-family:var(--body);font-weight:600;font-size:14px;letter-spacing:3px;text-transform:uppercase;color:var(--dim);padding:0 16px;display:inline-flex;align-items:center;gap:16px}
+.marquee-row .dot{width:6px;height:6px;border-radius:50%;display:inline-block;flex-shrink:0}
+@keyframes marqueeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.manifesto{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:0 clamp(24px,8vw,140px)}
+.manifesto-text{font-family:var(--display);font-style:italic;font-size:clamp(2rem,4.5vw,4.5rem);line-height:1.3;letter-spacing:-1px;max-width:1000px}
+.manifesto-text .mw{opacity:.12;transition:opacity .4s ease}
+.manifesto-text .mw.highlight{color:var(--gold)}
+@media(max-width:768px){.manifesto-text .mw{opacity:.35}}
+.pillars-section{position:relative;overflow:hidden}
+.pillars-track{display:flex;width:500vw;will-change:transform}
+.pillar-panel{width:100vw;height:100vh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}
+.pillar-bg-text{position:absolute;font-family:var(--display);font-style:italic;font-size:25vw;-webkit-text-stroke:2px rgba(255,255,255,.08);color:transparent;white-space:nowrap;user-select:none;z-index:0;left:50%;top:50%;transform:translate(-50%,-50%)}
+.pillar-img{position:relative;z-index:1;width:clamp(220px,22vw,340px);border-radius:16px;box-shadow:0 24px 80px rgba(0,0,0,.55);object-fit:cover;aspect-ratio:3/4}
+.pillar-info{position:relative;z-index:2;margin-left:clamp(24px,4vw,64px);max-width:300px}
+.pillar-num{font-family:var(--body);font-size:var(--type-label);letter-spacing:3px;color:var(--dim);text-transform:uppercase;margin-bottom:var(--space-tight)}
+.pillar-name{font-family:var(--display);font-style:italic;font-size:var(--type-h2);color:var(--cream);margin-bottom:var(--space-micro)}
+.pillar-desc{font-family:var(--body);font-weight:300;color:var(--body-text);font-size:var(--type-body);margin-bottom:var(--space-tight)}
+.pillar-brands{font-family:var(--body);font-size:var(--type-label);letter-spacing:2px;text-transform:uppercase;color:var(--dim)}
+.pillar-glow{position:absolute;width:60%;height:60%;border-radius:50%;filter:blur(150px);opacity:.08;z-index:0;top:20%;right:10%}
+@media(max-width:768px){.pillar-glow{filter:blur(80px);opacity:.05}}
+.pillars-progress{position:absolute;top:0;left:0;height:3px;background:var(--gold);z-index:10;width:0}
+.beliefs{position:relative;padding:var(--space-section) clamp(24px,5vw,60px) var(--space-block)}
+.beliefs-header{text-align:center;margin-bottom:var(--space-block)}
+.beliefs-header .headline{font-size:var(--type-h2);margin-top:var(--space-tight)}
+.beliefs-cards{position:relative;max-width:90vw;margin:0 auto}
+.belief-card{width:90vw;max-width:1000px;min-height:55vh;border-radius:20px;display:flex;align-items:center;justify-content:center;padding:clamp(32px,5vw,60px);margin:0 auto 24px;position:relative}
+.belief-card .belief-text{font-family:var(--display);font-style:italic;font-size:clamp(2rem,5vw,4rem);line-height:1.2;color:#0a1210;text-align:center;max-width:700px}
+.stat-section{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px;position:relative}
+.stat-number{font-family:var(--display);font-style:italic;font-size:clamp(8rem,20vw,18rem);color:var(--gold);line-height:1;letter-spacing:-4px}
+.stat-sub{max-width:500px;margin-top:24px}
+.portfolio{padding:var(--space-section) clamp(24px,5vw,80px);position:relative}
+.portfolio-header{text-align:center;margin-bottom:var(--space-block)}
+.portfolio-header .headline{font-size:var(--type-h2);margin-top:var(--space-tight)}
+.portfolio-grid{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;max-width:1200px;margin:0 auto}
+.port-card{flex:1;min-width:320px;max-width:520px;background:var(--card-bg);border:1px solid var(--card-border);border-radius:20px;padding:0;position:relative;overflow:hidden;transition:transform .45s cubic-bezier(.23,1,.32,1);transform-style:preserve-3d;text-decoration:none;color:inherit;display:block;cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,255,255,0.05)}
+.port-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;z-index:2;background:linear-gradient(90deg,var(--gold),var(--pleasure),var(--longevity),var(--gold));background-size:300% 100%;animation:gradShift 4s linear infinite}
+@keyframes gradShift{0%{background-position:0% 50%}100%{background-position:300% 50%}}
+@media(max-width:768px){.port-card::before{animation:none}}
+.port-img{width:100%;height:280px;object-fit:cover;display:block;filter:saturate(0.9) brightness(0.95);transition:filter .4s ease, transform .4s ease}
+.port-card:hover .port-img{filter:saturate(1.1) brightness(1.05);transform:scale(1.03)}
+.port-content{padding:28px 32px 32px}
+.port-tag{font-family:var(--body);font-size:var(--type-label);letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:var(--space-tight)}
+.port-name{font-family:var(--display);font-style:italic;font-size:var(--type-h3);color:var(--cream);margin-bottom:var(--space-micro)}
+.port-desc{font-family:var(--body);font-weight:300;color:var(--body-text);font-size:var(--type-body);margin-bottom:var(--space-tight);line-height:1.6}
+.port-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--body);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--longevity)}
+.port-badge .dot-live{width:6px;height:6px;border-radius:50%;background:var(--longevity);animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.ethos{padding:var(--space-section) clamp(24px,5vw,60px);position:relative}
+.ethos-header{text-align:center;margin-bottom:var(--space-block)}
+.ethos-header .headline{font-size:var(--type-h2);margin-top:var(--space-tight)}
+.ethos-grid{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;max-width:1000px;margin:0 auto}
+.ethos-card{flex:1;min-width:240px;max-width:320px;background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;padding:44px var(--space-element);text-align:center;opacity:0;transform:translateY(30px);box-shadow:inset 0 1px 0 rgba(255,255,255,0.05)}
+.ethos-card p{font-family:var(--display);font-style:italic;font-size:clamp(1.5rem,2vw,2rem);color:var(--cream)}
+.cta-section{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:0 24px}
+.cta-section .headline{font-size:clamp(3rem,8vw,7rem);letter-spacing:-0.03em}
+.cta-blob{position:absolute;width:400px;height:400px;background:radial-gradient(circle, var(--gold), transparent 70%);opacity:.08;filter:blur(100px);border-radius:50%}
+@media(max-width:768px){.cta-blob{filter:blur(60px);animation:none}}
+.cta-blob.b1{top:10%;left:20%;animation:morphBlob 10s ease-in-out infinite}
+.cta-blob.b2{bottom:15%;right:15%;animation:morphBlob 14s ease-in-out infinite reverse}
+.cta-email{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--gold);color:var(--gold);padding:14px 32px;border-radius:999px;font-family:var(--body);font-size:14px;letter-spacing:1px;margin-top:36px;transition:all .3s;position:relative;z-index:1}
+.cta-email:hover{background:var(--gold);color:var(--bg)}
+.intake{padding:var(--space-section) clamp(24px,5vw,80px);position:relative;overflow:hidden}
+.intake-glow{position:absolute;width:500px;height:500px;background:radial-gradient(circle, var(--gold), transparent 70%);opacity:.06;filter:blur(140px);border-radius:50%;top:10%;right:-10%;pointer-events:none}
+@media(max-width:768px){.intake-glow{filter:blur(80px);opacity:.04}}
+.intake-header{text-align:center;margin-bottom:var(--space-block)}
+.intake-header .headline{font-size:var(--type-h2);margin-top:var(--space-tight)}
+.intake-header .body-text{max-width:540px;margin:20px auto 0}
+.intake-form{max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+.intake-row{display:flex;gap:20px}
+@media(max-width:768px){.intake-row{flex-direction:column;gap:28px}}
+.intake-field{flex:1;display:flex;flex-direction:column;gap:8px}
+.intake-field label{font-family:var(--body);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--dim);font-weight:400}
+.intake-field input,.intake-field select,.intake-field textarea{background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:14px 18px;font-family:var(--body);font-weight:300;font-size:15px;color:var(--cream);transition:border-color .3s, box-shadow .3s;outline:none;-webkit-appearance:none;appearance:none}
+.intake-field input::placeholder,.intake-field textarea::placeholder{color:var(--dim);opacity:.6}
+.intake-field input:focus,.intake-field select:focus,.intake-field textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(255,127,92,.12)}
+.intake-field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1.5l5 5 5-5' stroke='%23F5F0FF' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px;cursor:pointer}
+.intake-field select option{background:var(--bg);color:var(--cream)}
+.intake-field textarea{resize:vertical;min-height:120px}
+.intake-submit{align-self:center;border:1px solid var(--gold);color:var(--gold);background:transparent;padding:16px 48px;border-radius:999px;font-family:var(--body);font-size:13px;letter-spacing:2px;text-transform:uppercase;transition:all .3s;cursor:pointer;margin-top:8px}
+.intake-submit:hover{background:var(--gold);color:var(--bg)}
+.intake-note{text-align:center;font-family:var(--body);font-size:12px;color:var(--dim);opacity:.6;margin-top:-8px}
+footer{padding:60px clamp(24px,5vw,60px);border-top:1px solid var(--card-border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px}
+footer .foot-logo{font-family:var(--body);font-weight:500;font-size:14px;color:var(--dim)}
+footer .foot-links{display:flex;gap:24px}
+footer .foot-links a{font-family:var(--body);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);transition:color .3s}
+footer .foot-links a:hover{color:var(--cream)}
+footer .foot-email{font-family:var(--body);font-size:12px;color:var(--dim)}
+.gsap-fade{opacity:0;transform:translateY(30px)}
+.pillars-track,.belief-card,.pillar-panel,.port-card{-webkit-backface-visibility:hidden;backface-visibility:hidden}
+*{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.gold-divider{width:80px;height:1px;background:var(--gold);margin:0 auto;opacity:.4}
+@media(max-width:768px){
+  nav .nav-links a:not(.cta-pill){display:none}
+  .manifesto{min-height:auto;padding:80px 24px}
+  .pillars-section{overflow:visible}
+  .pillars-track{-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .pillars-track::-webkit-scrollbar{display:none}
+  .pillar-panel{flex-direction:column;text-align:center;padding:60px 24px}
+  .pillar-info{margin-left:0;margin-top:28px;text-align:center}
+  .pillar-bg-text{font-size:30vw}
+  .pillar-img{width:clamp(180px,55vw,280px)}
+  .belief-card{min-height:40vh;margin-bottom:16px}
+  .beliefs-header .headline{letter-spacing:-1px}
+  .portfolio-grid,.ethos-grid{flex-direction:column;align-items:center}
+  .port-card{max-width:100%;min-width:0;width:100%;margin-left:0;margin-right:0}
+  .port-img{height:220px}
+  .port-content{padding:20px 24px 24px}
+  .ethos-card{max-width:100%;min-width:0}
+  .portfolio{padding:var(--space-block) var(--space-tight)}
+  .portfolio-grid{gap:var(--space-element)}
+  .portfolio-header{margin-bottom:var(--space-element)}
+  footer{flex-direction:column;text-align:center}
+  .intake{padding:var(--space-block) var(--space-tight)}
+  .intake-header{margin-bottom:var(--space-element)}
+}
+</style>
+</head>
+<body>
+<div class="grain"><svg width="100%" height="100%"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#noiseFilter)"/></svg></div>
+<div class="cursor" id="cursor"></div>
+<nav>
+  <div class="logo">
+    <div class="bloom-mark">
+      <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+      <div class="bloom-center"></div>
+    </div>
+    Care <span class="logo-amp">&</span> Bloom
+  </div>
+  <div class="nav-links">
+    <a href="#pillars">Pillars</a>
+    <a href="#beliefs">Beliefs</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="talents/">Talents</a>
+    <a href="#intake" class="cta-pill">Let's Talk &#8599;</a>
+  </div>
+</nav>
+<section class="hero" id="hero">
+  <div class="hero-blob"></div>
+  <p class="label hero-tag">Brand House &middot; Est. 2021</p>
+  <h1 class="headline">
+    <span class="line">The house</span>
+    <span class="line">that health</span>
+    <span class="line">built.</span>
+  </h1>
+  <p class="body-text hero-sub">Growth buys you abundance. Abundance buys you the right to solve the problems that actually matter. We picked five.</p>
+  <div class="scroll-indicator"><span>Scroll</span><div class="arrow"></div></div>
+</section>
+<section class="marquee-section">
+  <div class="marquee-row" id="marquee1"></div>
+  <div style="height:10px"></div>
+  <div class="marquee-row reverse" id="marquee2"></div>
+</section>
+<section class="manifesto" id="manifesto">
+  <p class="manifesto-text" id="manifestoText"></p>
+</section>
+<section class="pillars-section" id="pillars">
+  <div class="pillars-progress" id="pillarsProgress"></div>
+  <div class="pillars-track" id="pillarsTrack">
+    <div class="pillar-panel">
+      <div class="pillar-glow" style="background:var(--pleasure)"></div>
+      <div class="pillar-bg-text">Pleasure</div>
+      <img class="pillar-img" src="images/pleasure-v3.webp" alt="Pleasure" loading="lazy">
+      <div class="pillar-info"><p class="pillar-num">01 / 05</p><h3 class="pillar-name">Pleasure</h3><p class="pillar-desc">Follow your appetite.</p><p class="pillar-brands">Nancy &middot; Biird</p></div>
+    </div>
+    <div class="pillar-panel">
+      <div class="pillar-glow" style="background:var(--longevity)"></div>
+      <div class="pillar-bg-text">Longevity</div>
+      <img class="pillar-img" src="images/longevity-v3.webp" alt="Longevity" loading="lazy">
+      <div class="pillar-info"><p class="pillar-num">02 / 05</p><h3 class="pillar-name">Longevity</h3><p class="pillar-desc">Stay.</p><p class="pillar-brands">Coming soon</p></div>
+    </div>
+    <div class="pillar-panel">
+      <div class="pillar-glow" style="background:var(--education)"></div>
+      <div class="pillar-bg-text">Education</div>
+      <img class="pillar-img" src="images/education-v3.webp" alt="Education" loading="lazy">
+      <div class="pillar-info"><p class="pillar-num">03 / 05</p><h3 class="pillar-name">Education</h3><p class="pillar-desc">Learn to live.</p><p class="pillar-brands">Coming soon</p></div>
+    </div>
+    <div class="pillar-panel">
+      <div class="pillar-glow" style="background:var(--culture)"></div>
+      <div class="pillar-bg-text">Culture</div>
+      <img class="pillar-img" src="images/culture-v3.webp" alt="Culture" loading="lazy">
+      <div class="pillar-info"><p class="pillar-num">04 / 05</p><h3 class="pillar-name">Culture</h3><p class="pillar-desc">Wear it well.</p><p class="pillar-brands">Coming soon</p></div>
+    </div>
+    <div class="pillar-panel">
+      <div class="pillar-glow" style="background:var(--mind)"></div>
+      <div class="pillar-bg-text">Mind</div>
+      <img class="pillar-img" src="images/mind-v3.webp" alt="Mind" loading="lazy">
+      <div class="pillar-info"><p class="pillar-num">05 / 05</p><h3 class="pillar-name">Mind</h3><p class="pillar-desc">Be here.</p><p class="pillar-brands">Coming soon</p></div>
+    </div>
+  </div>
+</section>
+<section class="beliefs" id="beliefs">
+  <div class="beliefs-header"><p class="label">Our Point of View</p><h2 class="headline" id="beliefsTitle">Built by hand, scaled with taste</h2></div>
+  <div class="beliefs-cards" id="beliefsCards">
+    <div class="belief-card" style="background:#C9B87A"><p class="belief-text"><span class="struck">Optimise</span> your body. Listen to it.</p></div>
+    <div class="belief-card" style="background:#FF6B35"><p class="belief-text"><span class="struck">A</span> vertical. The vertical.</p></div>
+    <div class="belief-card" style="background:#06D6A0"><p class="belief-text">$7.5 trillion. <span class="struck">Mostly noise.</span> Signal.</p></div>
+  </div>
+</section>
+<section class="stat-section" id="stat">
+  <div class="stat-number" id="statNumber">$0T</div>
+  <p class="body-text stat-sub">The global wellness economy. Fragmented. Underbranded. Wide open.</p>
+</section>
+<section class="portfolio" id="portfolio">
+  <div class="portfolio-header"><p class="label">The House</p><h2 class="headline">Brands in residence</h2></div>
+  <div class="portfolio-grid">
+    <a href="https://www.hellonancy.com" target="_blank" rel="noopener" class="port-card gsap-fade">
+      <img class="port-img" src="images/nancy-real.webp" alt="Hello Nancy product">
+      <div class="port-content"><p class="port-tag">Pleasure</p><h3 class="port-name">Hello Nancy</h3><p class="port-desc">Say it out loud.</p><span class="port-badge"><span class="dot-live"></span>Live</span></div>
+    </a>
+    <a href="https://biird.co" target="_blank" rel="noopener" class="port-card gsap-fade">
+      <img class="port-img" src="images/biird-real.webp" alt="Biird product">
+      <div class="port-content"><p class="port-tag">Pleasure</p><h3 class="port-name">Biird</h3><p class="port-desc">Beautiful objects for private moments.</p><span class="port-badge"><span class="dot-live"></span>Live</span></div>
+    </a>
+  </div>
+</section>
+<section class="ethos" id="ethos">
+  <div class="ethos-header"><p class="label">Who We Are</p><h2 class="headline">Not advisors. Operators.</h2></div>
+  <div class="ethos-grid">
+    <div class="ethos-card"><p>We ship.</p></div>
+    <div class="ethos-card"><p>Three brands live. More coming.</p></div>
+    <div class="ethos-card"><p>Operators, not advisors.</p></div>
+  </div>
+</section>
+<section class="cta-section" id="cta">
+  <div class="cta-blob b1"></div>
+  <div class="cta-blob b2"></div>
+  <h2 class="headline" style="position:relative;z-index:1">Let's talk.</h2>
+  <a href="mailto:hello@careandbloom.com" class="cta-email">hello@careandbloom.com &#8599;</a>
+</section>
+<section class="intake" id="intake">
+  <div class="intake-glow"></div>
+  <div class="intake-header"><p class="label">Work With Us</p><h2 class="headline">Let's build something.</h2><p class="body-text">We partner with founders who care about what they're building. Tell us about your brand.</p></div>
+  <form class="intake-form" action="https://formspree.io/f/xyzzy123" method="POST">
+    <div class="intake-row">
+      <div class="intake-field gsap-fade"><label for="intake-name">Your Name</label><input type="text" id="intake-name" name="name" placeholder="Full name" required></div>
+      <div class="intake-field gsap-fade"><label for="intake-email">Email</label><input type="email" id="intake-email" name="email" placeholder="you@company.com" required></div>
+    </div>
+    <div class="intake-row">
+      <div class="intake-field gsap-fade"><label for="intake-company">Company / Brand</label><input type="text" id="intake-company" name="company" placeholder="Brand or company name" required></div>
+      <div class="intake-field gsap-fade"><label for="intake-website">Website</label><input type="url" id="intake-website" name="website" placeholder="https://..."></div>
+    </div>
+    <div class="intake-row">
+      <div class="intake-field gsap-fade">
+        <label for="intake-vertical">Category / Vertical</label>
+        <select id="intake-vertical" name="vertical" required>
+          <option value="" disabled selected>Select your space</option>
+          <option value="pleasure">Pleasure & Intimacy</option>
+          <option value="longevity">Longevity & Wellness</option>
+          <option value="education">Education & Learning</option>
+          <option value="culture">Culture & Lifestyle</option>
+          <option value="mind">Mind & Mental Health</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="intake-field gsap-fade">
+        <label for="intake-stage">Stage</label>
+        <select id="intake-stage" name="stage" required>
+          <option value="" disabled selected>Where are you?</option>
+          <option value="idea">Idea / Pre-launch</option>
+          <option value="early">Early revenue (< $1M)</option>
+          <option value="growing">Growing ($1M–$10M)</option>
+          <option value="scaling">Scaling ($10M+)</option>
+          <option value="established">Established / Rebrand</option>
+        </select>
+      </div>
+    </div>
+    <div class="intake-field gsap-fade"><label for="intake-message">What are you building?</label><textarea id="intake-message" name="message" placeholder="Tell us about your brand, what makes it different, and what you're looking for." required></textarea></div>
+    <button type="submit" class="intake-submit gsap-fade">Send It &#8599;</button>
+    <p class="intake-note gsap-fade">We read every submission. If there's a fit, we'll be in touch within 48 hours.</p>
+  </form>
+</section>
+<footer>
+  <div class="foot-logo">Care <span style="font-style:italic;color:var(--accent)">&</span> Bloom</div>
+  <div class="foot-links">
+    <a href="https://www.linkedin.com/company/care-n-bloom/about/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://www.instagram.com/carenbloomco/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.facebook.com/Care-Bloom-101489492520163" target="_blank" rel="noopener">Facebook</a>
+    <a href="talents/">Talents</a>
+  </div>
+  <div class="foot-email"><a href="mailto:hello@careandbloom.com">hello@careandbloom.com</a></div>
+</footer>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+gsap.config({ force3D: true });
+var isMobileGlobal = window.innerWidth < 768 || 'ontouchstart' in window;
+if (isMobileGlobal) {
+  document.querySelectorAll('.gsap-fade, .ethos-card').forEach(function(el){
+    gsap.fromTo(el,{opacity:0,y:20},{opacity:1,y:0,duration:0.8,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 90%',toggleActions:'play none none none'}});
+  });
+}
+(function(){
+  var c=document.getElementById('cursor');
+  if(!c||matchMedia('(hover:none)').matches)return;
+  var mx=0,my=0;
+  document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY});
+  gsap.ticker.add(function(){gsap.set(c,{x:mx,y:my,xPercent:-50,yPercent:-50})});
+  document.querySelectorAll('a, button, .widget-btn, .port-card, .cta-pill').forEach(function(el){
+    el.addEventListener('mouseenter',function(){c.classList.add('expand')});
+    el.addEventListener('mouseleave',function(){c.classList.remove('expand')});
+  });
+})();
+gsap.to('.hero .line',{opacity:1,y:0,duration:1.2,stagger:{each:0.12,ease:'power1.in'},ease:'power4.out',delay:0.3});
+gsap.to('.hero-sub',{opacity:1,y:0,duration:1,delay:0.9,ease:'power3.out'});
+gsap.to('.scroll-indicator',{opacity:1,duration:0.8,delay:1.5,ease:'power2.out'});
+(function(){
+  var items=['Follow your appetite','Stay longer','Learn to live','Wear it well','Be here','Feel everything','Age on purpose','Build what matters','Bodies are intelligent','Taste over trends'];
+  var colors=['#FF6B35','#06D6A0','#FFD23F','#E879F9','#7C9CF5','#FF6B35','#06D6A0','#FFD23F','#E879F9','#7C9CF5'];
+  function buildRow(){var h='';for(var r=0;r<4;r++){items.forEach(function(w,i){h+='<span><span class="dot" style="background:'+colors[i%colors.length]+'"></span>'+w+'</span>'});}return h;}
+  document.getElementById('marquee1').innerHTML=buildRow();
+  document.getElementById('marquee2').innerHTML=buildRow();
+})();
+(function(){
+  var raw='We got lucky. We built things. We made money. And then we asked: now what? Not more exits. Not more SaaS. The stuff that actually matters \u2014 your body, your pleasure, your time on earth.';
+  var highlightWords=['now','what?','body,','pleasure,','time'];
+  var el=document.getElementById('manifestoText');
+  var words=raw.split(/\s+/);
+  el.innerHTML=words.map(function(w){var clean=w.toLowerCase().replace(/[^a-z?]/g,'');var isHL=highlightWords.some(function(h){return clean===h.replace(/[^a-z?]/g,'')});return'<span class="mw'+(isHL?' highlight':'')+'">' +w+' </span>'}).join('');
+  var spans=el.querySelectorAll('.mw');
+  var isMobile=window.innerWidth<768||'ontouchstart' in window;
+  if(isMobile){spans.forEach(function(s){gsap.to(s,{opacity:1,duration:0.6,ease:'power2.out',scrollTrigger:{trigger:s,start:'top 85%',toggleActions:'play none none none'}})});}
+  else{var tl=gsap.timeline({scrollTrigger:{trigger:'.manifesto',start:'top top',end:'+=300%',pin:true,scrub:1.5,anticipatePin:1}});spans.forEach(function(s,i){tl.to(s,{opacity:1,duration:0.8,ease:'power2.out'},i*0.2)});}
+})();
+(function(){
+  var track=document.getElementById('pillarsTrack');
+  var progress=document.getElementById('pillarsProgress');
+  var isMobile=window.innerWidth<768||'ontouchstart' in window;
+  if(isMobile){
+    track.style.width='auto';track.style.overflowX='auto';track.style.webkitOverflowScrolling='touch';track.style.scrollSnapType='x mandatory';track.style.gap='0';progress.style.display='none';
+    document.querySelectorAll('.pillar-panel').forEach(function(p){p.style.scrollSnapAlign='center';p.style.minWidth='90vw';p.style.width='90vw';p.style.flexShrink='0';p.style.height='auto';p.style.minHeight='80vh'});
+    document.querySelectorAll('.pillar-panel').forEach(function(panel){gsap.from(panel,{y:20,duration:0.6,ease:'power2.out',scrollTrigger:{trigger:panel,start:'top 90%',toggleActions:'play none none none'}})});
+  }else{
+    gsap.to(track,{x:function(){return-(track.scrollWidth-window.innerWidth)},ease:'none',scrollTrigger:{trigger:'.pillars-section',start:'top top',end:function(){return'+='+(track.scrollWidth-window.innerWidth)},pin:true,scrub:1.5,anticipatePin:1,invalidateOnRefresh:true,onUpdate:function(self){gsap.to(progress,{width:(self.progress*100)+'%',duration:0.3,ease:'power2.out',overwrite:true})}}});
+  }
+})();
+(function(){
+  var cards=document.querySelectorAll('.belief-card');
+  var isMobile=window.innerWidth<768||'ontouchstart' in window;
+  if(isMobile){cards.forEach(function(card){gsap.from(card,{y:30,scale:0.95,duration:0.7,ease:'power3.out',scrollTrigger:{trigger:card,start:'top 88%',toggleActions:'play none none none'}})});}
+  else{cards.forEach(function(card,i){if(i<cards.length-1){ScrollTrigger.create({trigger:card,start:'top 10%',endTrigger:cards[i+1],end:'top 10%',pin:true,pinSpacing:false,anticipatePin:1});gsap.to(card,{scale:0.93,autoAlpha:0.5,scrollTrigger:{trigger:cards[i+1],start:'top bottom',end:'top 10%',scrub:1.5}})}});}
+})();
+(function(){
+  var el=document.getElementById('statNumber');var obj={val:0};
+  gsap.to(obj,{val:7.5,duration:2.5,ease:'power2.out',snap:{val:0.1},scrollTrigger:{trigger:'.stat-section',start:'top 60%',toggleActions:'play none none reverse'},onUpdate:function(){el.textContent='$'+obj.val.toFixed(1)+'T'}});
+})();
+if(!isMobileGlobal){gsap.utils.toArray('.portfolio .gsap-fade').forEach(function(el,i){gsap.to(el,{opacity:1,y:0,duration:1,delay:i*0.12,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 85%'}})});}
+document.querySelectorAll('.port-card').forEach(function(card){
+  card.addEventListener('mousemove',function(e){var r=card.getBoundingClientRect();var x=(e.clientX-r.left)/r.width-0.5;var y=(e.clientY-r.top)/r.height-0.5;gsap.to(card,{rotateY:x*8,rotateX:-y*8,z:12,duration:0.4,ease:'power2.out',transformPerspective:800})});
+  card.addEventListener('mouseleave',function(){gsap.to(card,{rotateY:0,rotateX:0,z:0,duration:0.6,ease:'power3.out',transformPerspective:800})});
+});
+if(!isMobileGlobal){gsap.utils.toArray('.ethos-card').forEach(function(el,i){gsap.to(el,{opacity:1,y:0,duration:1,delay:i*0.12,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 85%'}})});}
+if(!isMobileGlobal){gsap.utils.toArray('.intake .gsap-fade').forEach(function(el,i){gsap.to(el,{opacity:1,y:0,duration:1,delay:i*0.08,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 85%'}})});}
+document.querySelectorAll('nav a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var target=document.querySelector(a.getAttribute('href'));if(target)target.scrollIntoView({behavior:'smooth'})})});
+</script>
+</body>
+</html>

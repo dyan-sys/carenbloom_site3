@@ -1,0 +1,904 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="Apply for a remote role at Care & Bloom.">
+    <meta property="og:title" content="Apply | Care & Bloom">
+    <meta property="og:description" content="Remote open roles at Care & Bloom across operators, marketers, creatives, and company builders.">
+    <meta property="og:type" content="website">
+    <title>Apply | Care & Bloom</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '832767357702650');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=832767357702650&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <style>
+      /* ── Font Face ── */
+      @font-face {
+        font-family: 'PP Editorial New';
+        src: url('../../PPEditorialNew-Ultralight.otf') format('opentype');
+        font-weight: 200;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      /* ── Reset ── */
+      *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+      /* ── Tokens ── */
+      :root {
+        --bg: #1A1A3E;
+        --cream: #F5F0FF;
+        --gold: #FF7F5C;
+        --dim: rgba(245,240,255,0.35);
+        --body-text: rgba(245,240,255,0.55);
+        --card-bg: rgba(255,255,255,0.04);
+        --card-border: rgba(255,255,255,0.07);
+        --serif: 'PP Editorial New', 'Georgia', serif;
+        --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        --radius: 12px;
+        --radius-lg: 16px;
+      }
+
+      /* ── Grain overlay ── */
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        pointer-events: none;
+        opacity: 0.04;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+        background-size: 128px 128px;
+      }
+
+      /* ── Custom cursor ── */
+      html { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Ccircle cx='10' cy='10' r='4' fill='%23FF7F5C' opacity='0.8'/%3E%3C/svg%3E") 10 10, auto; }
+      a, button, select, input[type="file"], label, .application-tooltip { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Ccircle cx='12' cy='12' r='6' fill='%23FF7F5C' opacity='0.9'/%3E%3C/svg%3E") 12 12, pointer; }
+
+      /* ── Base ── */
+      html { scroll-behavior: smooth; }
+      body {
+        background: var(--bg);
+        color: var(--cream);
+        font-family: var(--sans);
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      a { color: var(--gold); text-decoration: none; transition: opacity 0.2s; }
+      a:hover { opacity: 0.8; }
+
+      /* ── Header / Nav ── */
+      .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.25rem 2.5rem;
+        background: rgba(26,26,62,0.85);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--card-border);
+      }
+
+      .brand-mark {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+      }
+
+      .brand-logo {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        background: var(--gold);
+        border-radius: 50%;
+        position: relative;
+      }
+
+      .brand-logo::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--bg);
+        transform: translate(-50%, -50%);
+      }
+
+      .top-nav {
+        display: flex;
+        align-items: center;
+        gap: 1.75rem;
+      }
+
+      .top-nav a {
+        font-size: 0.8125rem;
+        font-weight: 500;
+        color: var(--dim);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        transition: color 0.2s;
+      }
+
+      .top-nav a:hover,
+      .top-nav a[aria-current="page"] {
+        color: var(--cream);
+        opacity: 1;
+      }
+
+      .nav-pill {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.5rem 1.25rem;
+        border: 1px solid var(--gold);
+        border-radius: 100px;
+        color: var(--gold);
+        font-size: 0.8125rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        transition: background 0.2s, color 0.2s;
+      }
+
+      .nav-pill:hover {
+        background: var(--gold);
+        color: var(--bg);
+        opacity: 1;
+      }
+
+      /* ── Main ── */
+      main {
+        padding-top: 5rem;
+      }
+
+      .section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 3rem 2.5rem;
+      }
+
+      /* ── Role Hero ── */
+      .role-hero {
+        padding-top: 4rem;
+        padding-bottom: 2rem;
+      }
+
+      .role-back {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.875rem;
+        color: var(--dim);
+        margin-bottom: 1.5rem;
+        transition: color 0.2s;
+      }
+
+      .role-back::before {
+        content: '\2190';
+        font-size: 1.1em;
+      }
+
+      .role-back:hover {
+        color: var(--cream);
+        opacity: 1;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--gold);
+        background: rgba(255,127,92,0.1);
+        padding: 0.25rem 0.75rem;
+        border-radius: 100px;
+        margin-bottom: 1rem;
+      }
+
+      .page-title {
+        font-family: var(--serif);
+        font-weight: 200;
+        font-style: italic;
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        line-height: 1.1;
+        color: var(--cream);
+        margin-bottom: 2rem;
+      }
+
+      .role-meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 2rem;
+      }
+
+      .role-meta p[data-role-summary] {
+        flex: 1 1 400px;
+        font-size: 1.0625rem;
+        color: var(--body-text);
+        line-height: 1.7;
+      }
+
+      .role-meta dl {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .role-meta dl > div {
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: var(--radius);
+        padding: 1rem 1.5rem;
+      }
+
+      .role-meta dt {
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--dim);
+        margin-bottom: 0.25rem;
+      }
+
+      .role-meta dd {
+        font-size: 0.9375rem;
+        color: var(--cream);
+        font-weight: 500;
+      }
+
+      /* ── Role Detail (two-column) ── */
+      .role-detail {
+        display: grid;
+        grid-template-columns: 55% 45%;
+        gap: 3rem;
+        align-items: start;
+        padding-top: 2rem;
+      }
+
+      .role-copy h3 {
+        font-family: var(--serif);
+        font-style: italic;
+        font-weight: 200;
+        font-size: 1.5rem;
+        color: var(--cream);
+        margin-bottom: 0.75rem;
+        margin-top: 2.5rem;
+      }
+
+      .role-copy h3:first-child {
+        margin-top: 0;
+      }
+
+      .role-copy p {
+        color: var(--body-text);
+        font-size: 0.9375rem;
+        line-height: 1.75;
+        margin-bottom: 1rem;
+      }
+
+      .role-copy p a {
+        font-weight: 600;
+      }
+
+      .role-copy ul {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 1rem;
+      }
+
+      .role-copy li {
+        position: relative;
+        padding-left: 1.25rem;
+        color: var(--body-text);
+        font-size: 0.9375rem;
+        line-height: 1.75;
+        margin-bottom: 0.5rem;
+      }
+
+      .role-copy li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.6em;
+        width: 6px;
+        height: 6px;
+        background: var(--gold);
+        border-radius: 50%;
+      }
+
+      /* ── Application Form ── */
+      .application-form {
+        position: sticky;
+        top: 6rem;
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: var(--radius-lg);
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+
+      .application-form-head h2 {
+        font-family: var(--serif);
+        font-style: italic;
+        font-weight: 200;
+        font-size: 1.5rem;
+        color: var(--cream);
+        margin-bottom: 0.25rem;
+      }
+
+      .application-form-head p {
+        font-size: 0.8125rem;
+        color: var(--dim);
+      }
+
+      .application-role-head {
+        margin-top: 0.75rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid var(--card-border);
+      }
+
+      .application-form label {
+        display: flex;
+        flex-direction: column;
+        gap: 0.375rem;
+      }
+
+      .application-form label > span,
+      .application-form legend {
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--dim);
+      }
+
+      .application-form input[type="text"],
+      .application-form input[type="email"],
+      .application-form input[type="tel"],
+      .application-form input[type="url"],
+      .application-form select,
+      .application-form textarea {
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: var(--radius);
+        color: var(--cream);
+        font-family: var(--sans);
+        font-size: 0.9375rem;
+        padding: 0.75rem 1rem;
+        transition: border-color 0.2s, box-shadow 0.2s;
+        outline: none;
+        width: 100%;
+      }
+
+      .application-form input:focus,
+      .application-form select:focus,
+      .application-form textarea:focus {
+        border-color: var(--gold);
+        box-shadow: 0 0 0 3px rgba(255,127,92,0.15);
+      }
+
+      .application-form input::placeholder,
+      .application-form textarea::placeholder {
+        color: var(--dim);
+      }
+
+      .application-form select {
+        appearance: none;
+        -webkit-appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23F5F0FF' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        padding-right: 2.5rem;
+      }
+
+      .application-form select option {
+        background: var(--bg);
+        color: var(--cream);
+      }
+
+      .application-form input[type="file"] {
+        font-size: 0.875rem;
+        color: var(--dim);
+        padding: 0.625rem 1rem;
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: var(--radius);
+      }
+
+      .application-form input[type="file"]::file-selector-button {
+        background: rgba(255,255,255,0.06);
+        border: 1px solid var(--card-border);
+        border-radius: 6px;
+        color: var(--cream);
+        font-family: var(--sans);
+        font-size: 0.8125rem;
+        padding: 0.375rem 0.75rem;
+        margin-right: 0.75rem;
+        cursor: inherit;
+        transition: background 0.2s;
+      }
+
+      .application-form input[type="file"]::file-selector-button:hover {
+        background: rgba(255,255,255,0.1);
+      }
+
+      .application-form small {
+        font-size: 0.75rem;
+        color: var(--dim);
+        line-height: 1.5;
+      }
+
+      .application-form small a {
+        color: var(--gold);
+      }
+
+      .application-form textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+
+      /* Phone field */
+      .phone-field {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 0.75rem;
+      }
+
+      .application-form-wide {
+        grid-column: 1 / -1;
+      }
+
+      /* Tooltip */
+      .application-label-row {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .application-tooltip {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        border: 1px solid var(--dim);
+        font-size: 0.625rem;
+        font-style: normal;
+        color: var(--dim);
+        position: relative;
+      }
+
+      .application-tooltip-panel {
+        display: none;
+        position: absolute;
+        bottom: 130%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--bg);
+        border: 1px solid var(--card-border);
+        border-radius: 8px;
+        padding: 0.75rem 1rem;
+        font-size: 0.75rem;
+        font-style: normal;
+        color: var(--body-text);
+        width: 260px;
+        line-height: 1.5;
+        z-index: 10;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      }
+
+      .application-tooltip:hover + .application-tooltip-panel,
+      .application-tooltip:focus + .application-tooltip-panel {
+        display: block;
+      }
+
+      /* Checkbox / choice field */
+      .application-choice-field {
+        border: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .application-choice-group {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .application-choice {
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 0.5rem !important;
+        font-size: 0.875rem;
+        color: var(--cream);
+      }
+
+      .application-choice input[type="checkbox"] {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 18px;
+        height: 18px;
+        border: 1px solid var(--card-border);
+        border-radius: 4px;
+        background: var(--card-bg);
+        cursor: inherit;
+        position: relative;
+        transition: border-color 0.2s, background 0.2s;
+      }
+
+      .application-choice input[type="checkbox"]:checked {
+        background: var(--gold);
+        border-color: var(--gold);
+      }
+
+      .application-choice input[type="checkbox"]:checked::after {
+        content: '\2713';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 0.75rem;
+        color: var(--bg);
+        font-weight: 700;
+      }
+
+      .application-choice input[type="checkbox"]:focus {
+        border-color: var(--gold);
+        box-shadow: 0 0 0 3px rgba(255,127,92,0.15);
+      }
+
+      .application-choice span {
+        font-size: 0.875rem !important;
+        text-transform: none !important;
+        letter-spacing: 0 !important;
+        font-weight: 400 !important;
+        color: var(--cream) !important;
+      }
+
+      /* Role questions */
+      .application-form-fields {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+
+      /* Submit button */
+      .application-form button[type="submit"] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.875rem 2rem;
+        border: 1px solid var(--gold);
+        border-radius: 100px;
+        background: transparent;
+        color: var(--gold);
+        font-family: var(--sans);
+        font-size: 0.9375rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        cursor: inherit;
+        transition: background 0.2s, color 0.2s;
+        margin-top: 0.5rem;
+      }
+
+      .application-form button[type="submit"]:hover {
+        background: var(--gold);
+        color: var(--bg);
+      }
+
+      .application-form-status {
+        font-size: 0.875rem;
+        color: var(--dim);
+        min-height: 1.25em;
+      }
+
+      /* ── Footer ── */
+      .site-footer {
+        border-top: 1px solid var(--card-border);
+        padding: 2.5rem;
+        margin-top: 4rem;
+      }
+
+      .site-footer > div {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .footer-links {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      .footer-links a {
+        font-size: 0.8125rem;
+        color: var(--dim);
+        transition: color 0.2s;
+      }
+
+      .footer-links a:hover {
+        color: var(--cream);
+        opacity: 1;
+      }
+
+      /* ── Mobile ── */
+      @media (max-width: 768px) {
+        .site-header {
+          padding: 1rem 1.25rem;
+        }
+
+        .top-nav {
+          display: none;
+        }
+
+        .section {
+          padding: 2rem 1.25rem;
+        }
+
+        .role-detail {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .application-form {
+          position: static;
+        }
+
+        .role-meta {
+          flex-direction: column;
+        }
+
+        .role-meta dl {
+          flex-wrap: wrap;
+          gap: 0.75rem;
+        }
+
+        .phone-field {
+          grid-template-columns: 1fr;
+        }
+
+        .site-footer > div {
+          flex-direction: column;
+          gap: 1.5rem;
+          text-align: center;
+        }
+
+        .footer-links {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand-mark" href="../../" aria-label="Care & Bloom home">
+        <span class="brand-logo" aria-hidden="true"></span>
+      </a>
+      <nav class="top-nav" aria-label="Primary">
+        <a href="../../#pillars">Pillars</a>
+        <a href="../../#beliefs">Beliefs</a>
+        <a href="../../#portfolio">Portfolio</a>
+        <a href="../" aria-current="page">Talents</a>
+        <a class="nav-pill" href="../../#intake">Let's Talk</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section role-hero">
+        <div>
+          <a class="role-back" href="../">Back to roles</a>
+          <p class="eyebrow">Remote</p>
+          <h1 class="page-title" data-role-title>Chief of Staff</h1>
+        </div>
+        <div class="role-meta" aria-label="Role details">
+          <p data-role-summary>Bring order, accountability, and speed to cross-functional company-building work.</p>
+          <dl>
+            <div>
+              <dt>Location</dt>
+              <dd>Remote</dd>
+            </div>
+            <div>
+              <dt>Type</dt>
+              <dd>Full Time</dd>
+            </div>
+            <div>
+              <dt>Level</dt>
+              <dd data-role-level>Manager/Supervisor</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="section role-detail" aria-labelledby="role-description-title">
+        <article class="role-copy">
+          <h3 id="role-description-title">About Care & Bloom</h3>
+          <p>We launch and scale consumer health companies with $100M+ potential each. Built by operators who previously scaled IM8 (NASDAQ, $100M+ in 12 months), Casetify, and Peak21 — our flagship brand crossed 8-figure revenue and 1M+ customers in under 18 months. We're just getting started.</p>
+          <p>We're not hiring for roles — we're recruiting builders. People who've scaled revenue, shipped product, built things, broken things, and want to do it again — faster, with more resources, and alongside people who actually ship.</p>
+          <p>Check out our flagship brands: <a href="https://hellonancy.com" target="_blank" rel="noopener"><strong>hellonancy.com</strong></a> · <a href="https://biird.co" target="_blank" rel="noopener"><strong>biird.co</strong></a></p>
+
+          <h3>About the role</h3>
+          <p data-role-mission>Act as the operating hub across founders, marketing, product, creative, finance, and vendors so high-priority work moves from idea to launch without drift.</p>
+
+          <h3>Responsibilities</h3>
+          <ul data-role-responsibilities>
+            <li>Own project plans, follow-ups, launch calendars, and decision logs across active company initiatives.</li>
+            <li>Keep stakeholders aligned on deadlines, blockers, budgets, and next actions.</li>
+            <li>Build lightweight operating systems that make the team faster without adding bureaucracy.</li>
+          </ul>
+
+          <h3>What we are looking for</h3>
+          <ul data-role-requirements>
+            <li>Experience in operations, project management, marketing operations, or founder-adjacent execution.</li>
+            <li>Excellent follow-through, written communication, and comfort managing multiple stakeholders.</li>
+            <li>High judgment, high urgency, and strong taste for what matters.</li>
+          </ul>
+
+          <h3>How to apply</h3>
+          <p>Use the application form on this page. To stand out, answer the role-specific prompts with direct examples.</p>
+        </article>
+
+        <form class="application-form" id="application-form" aria-label="Apply for this position">
+          <input type="hidden" name="role" value="Chief of Staff">
+          <div class="application-form-head">
+            <h2>Apply for this position</h2>
+            <p>Required fields are marked with an asterisk.</p>
+          </div>
+
+          <label>
+            <span>First Name*</span>
+            <input type="text" name="first_name" autocomplete="given-name" required>
+          </label>
+          <label>
+            <span>Last Name*</span>
+            <input type="text" name="last_name" autocomplete="family-name" required>
+          </label>
+          <label>
+            <span>Email*</span>
+            <input type="email" name="email" autocomplete="email" required>
+          </label>
+          <div class="phone-field">
+            <label>
+              <span>Country / area code*</span>
+              <select name="phone_country_code" autocomplete="tel-country-code" required>
+                <option value="">Choose code</option>
+              </select>
+            </label>
+            <label>
+              <span>Number*</span>
+              <input type="tel" name="phone_number" autocomplete="tel-national" inputmode="tel" required>
+            </label>
+          </div>
+          <label class="application-form-wide">
+            <span>LinkedIn (optional)</span>
+            <input type="url" name="linkedin" autocomplete="url">
+          </label>
+          <label class="application-form-wide">
+            <span>Resume*</span>
+            <input type="file" name="resume" accept=".pdf,.doc,.docx,.odt,.txt,.rtf" required>
+          </label>
+          <label class="application-form-wide">
+            <span class="application-label-row">
+              <span data-intro-video-label>Intro video (optional)</span>
+              <i class="application-tooltip" tabindex="0" aria-describedby="intro-video-tooltip">?</i>
+              <em class="application-tooltip-panel" id="intro-video-tooltip" role="tooltip">We encourage applicants to share a two-minute Loom video so we can get to know you sooner. Applicants' Loom videos will be prioritized in their review.</em>
+            </span>
+            <input type="url" name="intro_video_url" placeholder="https://www.loom.com/share/...">
+            <small>Attach a short video (1-2 min) introducing yourself and why you are a great fit. <a href="https://www.loom.com/" target="_blank" rel="noopener">Loom.com</a> works well.</small>
+          </label>
+          <label class="application-form-wide">
+            <span>Most recent all-in monthly income (USD/month)*</span>
+            <input type="text" name="monthly_income_usd" inputmode="numeric" pattern="[0-9]*" placeholder="USD/month, numbers only" data-numeric-only required>
+            <small>Enter the full monthly amount in USD before taxes, bonuses included.</small>
+          </label>
+          <fieldset class="application-choice-field">
+            <legend>What time zone are you open to work in?*</legend>
+            <div class="application-choice-group">
+              <label class="application-choice">
+                <input type="checkbox" name="open_time_zone" value="US" required>
+                <span>US</span>
+              </label>
+              <label class="application-choice">
+                <input type="checkbox" name="open_time_zone" value="Europe">
+                <span>Europe</span>
+              </label>
+              <label class="application-choice">
+                <input type="checkbox" name="open_time_zone" value="Asia">
+                <span>Asia</span>
+              </label>
+            </div>
+          </fieldset>
+          <label>
+            <span>Location (where are you based)*</span>
+            <select name="location" autocomplete="country-name" required>
+              <option value="">Choose country</option>
+            </select>
+          </label>
+
+          <div class="application-form-head application-role-head">
+            <h2>A few questions for you</h2>
+          </div>
+          <div class="application-form-fields" data-role-questions>
+            <label class="application-form-wide">
+              <span>Role-specific question 1</span>
+              <textarea name="role_question_1" rows="4" required placeholder="Describe a time you brought a messy cross-functional project back on track."></textarea>
+            </label>
+            <label class="application-form-wide">
+              <span>Role-specific question 2</span>
+              <textarea name="role_question_2" rows="4" required placeholder="What tools or systems do you use to keep stakeholders accountable?"></textarea>
+            </label>
+            <label class="application-form-wide">
+              <span>Role-specific question 3</span>
+              <textarea name="role_question_3" rows="4" required placeholder="What is the highest-leverage operating system you have built?"></textarea>
+            </label>
+          </div>
+          <label class="application-form-wide">
+            <span>Additional attachment (optional)</span>
+            <input type="file" name="additional_attachment">
+          </label>
+          <button type="submit">Submit application</button>
+          <p class="application-form-status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <a class="brand-mark" href="../../" aria-label="Care & Bloom home"><span class="brand-logo" aria-hidden="true"></span></a>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="../../#pillars">Pillars</a>
+          <a href="../../#beliefs">Beliefs</a>
+          <a href="../../#portfolio">Portfolio</a>
+          <a href="../">Talents</a>
+          <a href="../../#intake">Let's Talk</a>
+          <a href="mailto:hello@careandbloom.com">hello@careandbloom.com</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="../../scripts/careers-roles.js"></script>
+    <script src="../../scripts/careers-apply.js"></script>
+  </body>
+</html>
