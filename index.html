@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Flow Test — Care & Bloom v3</title>
+<title>Care & Bloom — The House That Health Built</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
@@ -77,7 +77,7 @@ nav{
   border-bottom:1px solid rgba(26,26,62,0.06);
 }
 .marquee-inner{
-  display:inline-block;animation:scroll 30s linear infinite;
+  display:inline-block;animation:marqueescroll 30s linear infinite;
 }
 .marquee-text{
   font-family:'Unbounded',sans-serif;font-size:13px;font-weight:400;
@@ -90,48 +90,28 @@ nav{
 .dot-orange{background:#FF7F5C}
 .dot-blue{background:#2E4A8E}
 .dot-navy{background:#1A1A3E;opacity:0.3}
-@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes marqueescroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-/* ─── MANIFESTO ─── */
-.manifesto{
+/* ─── MISSION (orange bg) ─── */
+.mission{
   min-height:200vh;display:flex;flex-direction:column;
   align-items:center;justify-content:center;
   padding:clamp(100px,15vw,200px) clamp(24px,5vw,80px);
   background:#FF7F5C;position:relative;overflow:hidden;
 }
-.manifesto-inner{
+.mission-inner{
   position:sticky;top:50%;transform:translateY(-50%);
 }
-.manifesto-content{
+.mission-content{
   position:relative;z-index:2;max-width:900px;text-align:center;
 }
-.manifesto h2{
+.mission h2{
   font-family:'Unbounded',sans-serif;
   font-size:clamp(1.4rem,3.5vw,3rem);
   font-weight:300;line-height:1.4;letter-spacing:-0.01em;
   color:#FFFFFF;
 }
-.manifesto .em{font-weight:700;font-style:normal}
-.manifesto .em-navy{font-weight:700;color:#1A1A3E}
-
-/* "now what?" highlight */
-.now-what{
-  display:inline-block;
-  background:#FFFFFF;
-  color:#2E4A8E;
-  padding:4px 14px;
-  border-radius:4px;
-  font-weight:800;
-  animation:tiltPulse 3s ease-in-out infinite;
-}
-@keyframes tiltPulse{
-  0%,100%{transform:rotate(0deg)}
-  25%{transform:rotate(-2deg)}
-  75%{transform:rotate(1.5deg)}
-}
-
-/* Second line - separate block */
-.manifesto-line2{
+.mission-line2{
   display:block;
   margin-top:clamp(32px,5vw,56px);
   font-family:'Unbounded',sans-serif;
@@ -142,22 +122,10 @@ nav{
   line-height:1.1;
   color:rgba(255,255,255,0.3);
 }
-
-/* Each word group that lights up on scroll */
-.scroll-word{
-  transition:color 0.5s ease;
-  display:inline;
-}
-.scroll-word.lit{
-  color:#FFFFFF;
-}
-.scroll-word.lit-navy{
-  color:#1A1A3E;
-  font-weight:700;
-}
-
-/* Faded bloom on orange bg */
-.manifesto .bloom-bg{
+.scroll-word{transition:color 0.5s ease, font-weight 0.5s ease;display:inline}
+.scroll-word.lit{color:#FFFFFF}
+.scroll-word.lit-navy{color:#1A1A3E;font-weight:700}
+.mission .bloom-bg{
   position:absolute;top:50%;left:50%;
   transform:translate(-50%,-50%);
   width:clamp(500px,70vw,900px);height:clamp(500px,70vw,900px);
@@ -165,125 +133,8 @@ nav{
   animation:spin 80s linear infinite;
 }
 
-/* ─── PILLARS (horizontal scroll with flick) ─── */
-.pillars-wrap{
-  position:relative;
-  height:800vh; /* more scroll runway for slower flick */
-}
-.pillars-sticky{
-  position:sticky;
-  top:0;
-  height:100vh;
-  overflow:hidden;
-  background:#F5F0E8;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.pillars-label{
-  position:absolute;
-  top:clamp(80px,10vh,100px);left:50%;
-  transform:translateX(-50%);
-  font-family:'Outfit',sans-serif;
-  font-size:11px;font-weight:500;letter-spacing:4px;text-transform:uppercase;
-  color:rgba(26,26,62,0.35);
-}
-.pillar-card{
-  position:absolute;
-  width:clamp(300px,50vw,600px);
-  padding:clamp(40px,5vw,80px);
-  background:#FFFFFF;
-  border-radius:16px;
-  box-shadow:0 8px 40px rgba(26,26,62,0.06);
-  text-align:center;
-  transition:none;
-  will-change:transform,opacity;
-}
-.pillar-img{
-  width:100%;
-  height:clamp(180px,20vw,260px);
-  object-fit:cover;
-  border-radius:10px;
-  margin-bottom:20px;
-}
-.pillar-num{
-  font-family:'Unbounded',sans-serif;
-  font-size:clamp(60px,10vw,120px);
-  font-weight:900;
-  color:rgba(26,26,62,0.04);
-  line-height:1;
-  margin-bottom:8px;
-}
-.pillar-name{
-  font-family:'Unbounded',sans-serif;
-  font-size:clamp(1.8rem,4vw,3.5rem);
-  font-weight:700;
-  text-transform:uppercase;
-  color:#FF7F5C;
-  margin-bottom:12px;
-}
-.pillar-desc{
-  font-family:'Outfit',sans-serif;
-  font-size:clamp(14px,1.4vw,17px);
-  font-weight:300;
-  color:rgba(26,26,62,0.5);
-  line-height:1.6;
-}
-.pillar-status{
-  display:inline-block;
-  margin-top:20px;
-  font-family:'Outfit',sans-serif;
-  font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;
-  color:rgba(26,26,62,0.3);
-  padding:6px 14px;
-  border:1px solid rgba(26,26,62,0.1);
-  border-radius:20px;
-}
-.pillar-status.live{color:#2E8B57;border-color:rgba(46,139,87,0.3)}
-.pillar-progress{
-  position:absolute;
-  bottom:clamp(30px,5vh,50px);left:50%;
-  transform:translateX(-50%);
-  display:flex;gap:10px;
-}
-.pillar-dot{
-  width:8px;height:8px;border-radius:50%;
-  background:rgba(26,26,62,0.1);
-  transition:background 0.3s, transform 0.3s;
-}
-.pillar-dot.active{
-  background:#FF7F5C;
-  transform:scale(1.3);
-}
-
-/* ─── REVEAL ANIMATION ─── */
-.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.9s cubic-bezier(0.25,0.8,0.25,1),transform 0.9s cubic-bezier(0.25,0.8,0.25,1)}
-.reveal.visible{opacity:1;transform:translateY(0)}
-
-/* ─── STATS ─── */
-.stats{
-  padding:clamp(100px,15vw,180px) 24px;
-  background:#F5F0E8;text-align:center;
-}
-.stats-number{
-  font-family:'Unbounded',sans-serif;
-  font-size:clamp(4rem,12vw,10rem);
-  font-weight:800;color:#FF7F5C;
-  line-height:1;letter-spacing:-0.03em;
-}
-.stats-label{
-  font-family:'Outfit',sans-serif;
-  font-size:clamp(14px,1.6vw,20px);
-  font-weight:300;color:rgba(26,26,62,0.5);
-  margin-top:16px;
-}
-.stats-line{
-  width:60px;height:2px;background:#FF7F5C;
-  margin:28px auto 0;border:none;
-}
-
-/* ─── PORTFOLIO ─── */
-.portfolio{
+/* ─── CATEGORIES ─── */
+.categories{
   padding:clamp(80px,12vw,160px) clamp(24px,5vw,80px);
   background:#F5F0E8;
 }
@@ -293,6 +144,64 @@ nav{
   color:rgba(26,26,62,0.35);text-align:center;margin-bottom:clamp(40px,6vw,72px);
 }
 .section-label.white-dim{color:rgba(255,255,255,0.5)}
+.section-label.left{text-align:left}
+.section-heading{
+  font-family:'Unbounded',sans-serif;
+  font-size:clamp(1.8rem,4vw,3rem);
+  font-weight:700;text-transform:uppercase;color:#1A1A3E;
+  text-align:center;margin-bottom:clamp(40px,6vw,64px);
+}
+.cat-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,3vw,40px);
+  max-width:1100px;margin:0 auto;
+}
+.cat-card{
+  background:#FFFFFF;border-radius:16px;overflow:hidden;
+  padding:clamp(32px,4vw,48px);position:relative;
+  box-shadow:0 8px 40px rgba(26,26,62,0.06);
+  transition:transform 0.4s cubic-bezier(0.25,0.8,0.25,1),box-shadow 0.4s cubic-bezier(0.25,0.8,0.25,1);
+}
+.cat-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 16px 60px rgba(26,26,62,0.12);
+}
+.cat-num{
+  font-family:'Unbounded',sans-serif;
+  font-size:clamp(80px,12vw,140px);
+  font-weight:900;
+  color:rgba(26,26,62,0.04);
+  line-height:1;position:absolute;top:12px;right:20px;
+}
+.cat-name{
+  font-family:'Unbounded',sans-serif;
+  font-size:clamp(1.2rem,2.2vw,1.8rem);
+  font-weight:700;text-transform:uppercase;
+  margin-bottom:12px;
+}
+.cat-name.orange{color:#FF7F5C}
+.cat-name.blue{color:#2E4A8E}
+.cat-desc{
+  font-family:'Outfit',sans-serif;
+  font-size:clamp(14px,1.3vw,16px);
+  font-weight:300;color:rgba(26,26,62,0.5);line-height:1.6;
+  position:relative;z-index:1;
+}
+
+/* ─── BRANDS / PORTFOLIO ─── */
+.brands{
+  padding:clamp(80px,12vw,160px) clamp(24px,5vw,80px);
+  background:#F5F0E8;
+}
+.brands-intro{
+  max-width:800px;margin:0 auto clamp(32px,4vw,48px);text-align:center;
+  font-family:'Outfit',sans-serif;font-size:clamp(14px,1.4vw,17px);
+  font-weight:300;color:rgba(26,26,62,0.5);line-height:1.7;
+}
+.brands-sublabel{
+  font-family:'Outfit',sans-serif;font-size:11px;font-weight:500;
+  letter-spacing:4px;text-transform:uppercase;color:rgba(26,26,62,0.35);
+  text-align:center;margin-bottom:clamp(32px,4vw,48px);
+}
 .portfolio-grid{
   display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,3vw,40px);
   max-width:1100px;margin:0 auto;
@@ -324,59 +233,6 @@ nav{
 }
 .portfolio-title.orange{color:#FF7F5C;font-style:italic;letter-spacing:0.01em}
 .portfolio-title.blue{color:#2E4A8E;letter-spacing:0.02em}
-
-/* ─── CAREERS ─── */
-.careers{
-  padding:clamp(80px,12vw,160px) clamp(24px,5vw,80px);
-  background:#1A1A3E;
-}
-.careers-header{
-  text-align:center;margin-bottom:clamp(40px,6vw,64px);
-}
-.careers-header h2{
-  font-family:'Unbounded',sans-serif;
-  font-size:clamp(1.8rem,4vw,3rem);
-  font-weight:700;text-transform:uppercase;color:#FFFFFF;
-  margin-bottom:12px;
-}
-.careers-header p{
-  font-family:'Outfit',sans-serif;
-  font-size:clamp(14px,1.4vw,17px);font-weight:300;
-  color:rgba(255,255,255,0.5);
-}
-.careers-list{
-  max-width:800px;margin:0 auto;
-}
-.career-item{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:clamp(20px,3vw,28px) 0;
-  border-bottom:1px solid rgba(255,255,255,0.1);
-  transition:padding-left 0.3s ease;
-  cursor:pointer;
-}
-.career-item:first-child{border-top:1px solid rgba(255,255,255,0.1)}
-.career-item:hover{padding-left:12px}
-.career-role{
-  font-family:'Unbounded',sans-serif;
-  font-size:clamp(0.9rem,1.8vw,1.3rem);
-  font-weight:500;text-transform:uppercase;color:#FFFFFF;
-}
-.career-meta{
-  display:flex;gap:clamp(16px,3vw,32px);align-items:center;
-}
-.career-tag{
-  font-family:'Outfit',sans-serif;font-size:12px;font-weight:400;
-  color:rgba(255,255,255,0.4);letter-spacing:1px;text-transform:uppercase;
-}
-.career-arrow{
-  font-size:18px;color:#FF7F5C;transition:transform 0.3s;
-}
-.career-item:hover .career-arrow{transform:translateX(4px)}
-.careers-note{
-  text-align:center;margin-top:clamp(32px,4vw,48px);
-  font-family:'Outfit',sans-serif;font-size:13px;font-weight:300;
-  color:rgba(255,255,255,0.35);
-}
 .portfolio-desc{
   font-family:'Outfit',sans-serif;font-size:clamp(14px,1.4vw,16px);
   font-weight:300;color:rgba(26,26,62,0.5);line-height:1.6;margin-bottom:16px;
@@ -390,64 +246,228 @@ nav{
   width:8px;height:8px;border-radius:50%;background:#2E8B57;
   display:inline-block;
 }
-
-/* ─── BELIEFS ─── */
-.beliefs{
-  padding:clamp(100px,15vw,180px) clamp(24px,5vw,80px);
-  background:#FF7F5C;
+.portfolio-link{
+  font-family:'Outfit',sans-serif;font-size:12px;font-weight:500;
+  letter-spacing:2px;text-transform:uppercase;color:#FF7F5C;
+  text-decoration:none;margin-left:16px;transition:color 0.3s;
 }
-.beliefs-list{
-  max-width:900px;margin:0 auto;
+.portfolio-link:hover{color:#1A1A3E}
+.coming-soon-pills{
+  display:flex;justify-content:center;gap:16px;
+  margin-top:clamp(32px,4vw,48px);max-width:1100px;margin-left:auto;margin-right:auto;
+  flex-wrap:wrap;
 }
-.belief-item{
-  display:flex;align-items:baseline;gap:clamp(16px,3vw,32px);
-  padding:clamp(20px,3vw,32px) 0;
-  border-bottom:1px solid rgba(255,255,255,0.2);
-  cursor:default;
-  transition:transform 0.3s ease;
-}
-.belief-item:first-child{border-top:1px solid rgba(255,255,255,0.2)}
-.belief-num{
-  font-family:'Outfit',sans-serif;font-size:13px;font-weight:400;
-  color:rgba(255,255,255,0.5);white-space:nowrap;min-width:28px;
-}
-.belief-text{
-  font-family:'Unbounded',sans-serif;
-  font-size:clamp(1.2rem,3vw,2.4rem);
-  font-weight:700;text-transform:uppercase;
-  color:#FFFFFF;line-height:1.2;
-  transition:transform 0.3s ease, color 0.3s ease;
-}
-.belief-item:hover .belief-text{
-  transform:translateX(8px);
-  color:#1A1A3E;
+.pill{
+  font-family:'Outfit',sans-serif;font-size:12px;font-weight:500;
+  letter-spacing:2px;text-transform:uppercase;
+  color:rgba(26,26,62,0.35);
+  padding:10px 24px;border-radius:24px;
+  border:1px solid rgba(26,26,62,0.1);
 }
 
-/* ─── ETHOS ─── */
-.ethos{
+/* ─── CAPITAL ─── */
+.capital{
   padding:clamp(80px,12vw,160px) clamp(24px,5vw,80px);
   background:#F5F0E8;
 }
-.ethos-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,32px);
+.capital-inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,80px);
+  max-width:1100px;margin:0 auto;align-items:start;
+}
+.capital-left{max-width:480px}
+.capital-intro{
+  font-family:'Outfit',sans-serif;font-size:clamp(14px,1.4vw,17px);
+  font-weight:300;color:rgba(26,26,62,0.5);line-height:1.7;margin-bottom:20px;
+}
+.btn-pitch{
+  display:inline-block;
+  font-family:'Outfit',sans-serif;font-size:14px;font-weight:500;
+  letter-spacing:2px;text-transform:uppercase;
+  color:#FF7F5C;border:2px solid #FF7F5C;background:transparent;
+  padding:14px 36px;border-radius:8px;cursor:pointer;
+  text-decoration:none;transition:all 0.3s;margin-top:20px;
+}
+.btn-pitch:hover{background:#FF7F5C;color:#FFFFFF}
+.capital-criteria{list-style:none}
+.criterion{
+  padding:clamp(20px,3vw,28px) 0;
+  border-bottom:1px solid rgba(26,26,62,0.08);
+}
+.criterion:first-child{border-top:1px solid rgba(26,26,62,0.08)}
+.criterion-num{
+  font-family:'Outfit',sans-serif;font-size:13px;font-weight:400;
+  color:rgba(26,26,62,0.3);margin-bottom:6px;
+}
+.criterion-title{
+  font-family:'Unbounded',sans-serif;font-size:clamp(0.9rem,1.6vw,1.2rem);
+  font-weight:700;text-transform:uppercase;color:#1A1A3E;margin-bottom:8px;
+}
+.criterion-desc{
+  font-family:'Outfit',sans-serif;font-size:clamp(13px,1.2vw,15px);
+  font-weight:300;color:rgba(26,26,62,0.5);line-height:1.6;
+}
+
+/* ─── STATS STRIP ─── */
+.stats-strip{
+  padding:clamp(80px,12vw,140px) clamp(24px,5vw,80px);
+  background:#1A1A3E;
+}
+.stats-row{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,60px);
+  max-width:1000px;margin:0 auto;text-align:center;
+}
+.stat-value{
+  font-family:'Unbounded',sans-serif;
+  font-size:clamp(2.4rem,6vw,5rem);
+  font-weight:800;color:#FF7F5C;
+  line-height:1;letter-spacing:-0.03em;
+  margin-bottom:12px;
+}
+.stat-desc{
+  font-family:'Outfit',sans-serif;
+  font-size:clamp(13px,1.2vw,15px);
+  font-weight:300;color:rgba(255,255,255,0.5);line-height:1.6;
+}
+
+/* ─── TALENTS / CAREERS ─── */
+.talents{
+  padding:clamp(80px,12vw,160px) clamp(24px,5vw,80px);
+  background:#1A1A3E;
+}
+.talents-header{
+  text-align:center;margin-bottom:clamp(40px,6vw,64px);
+}
+.talents-header h2{
+  font-family:'Unbounded',sans-serif;
+  font-size:clamp(1.8rem,4vw,3rem);
+  font-weight:700;text-transform:uppercase;color:#FFFFFF;
+  margin-bottom:12px;
+}
+.talents-header p{
+  font-family:'Outfit',sans-serif;
+  font-size:clamp(14px,1.4vw,17px);font-weight:300;
+  color:rgba(255,255,255,0.5);
+}
+.talents-list{max-width:800px;margin:0 auto}
+.talent-item{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:clamp(18px,2.5vw,24px) 0;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+  transition:padding-left 0.3s ease;cursor:pointer;
+}
+.talent-item:first-child{border-top:1px solid rgba(255,255,255,0.1)}
+.talent-item:hover{padding-left:12px}
+.talent-role{
+  font-family:'Unbounded',sans-serif;
+  font-size:clamp(0.8rem,1.5vw,1.1rem);
+  font-weight:500;text-transform:uppercase;color:#FFFFFF;
+}
+.talent-meta{
+  display:flex;gap:clamp(12px,2vw,24px);align-items:center;
+}
+.talent-tag{
+  font-family:'Outfit',sans-serif;font-size:11px;font-weight:400;
+  color:rgba(255,255,255,0.4);letter-spacing:1px;text-transform:uppercase;
+}
+.talent-arrow{
+  font-size:18px;color:#FF7F5C;transition:transform 0.3s;
+}
+.talent-item:hover .talent-arrow{transform:translateX(4px)}
+
+/* ─── VALUES ─── */
+.values{
+  padding:clamp(80px,12vw,160px) clamp(24px,5vw,80px);
+  background:#F5F0E8;
+}
+.values-list{
+  max-width:900px;margin:0 auto;
+}
+.value-item{
+  display:flex;align-items:baseline;gap:clamp(16px,3vw,32px);
+  padding:clamp(20px,3vw,28px) 0;
+  border-bottom:1px solid rgba(26,26,62,0.08);
+}
+.value-item:first-child{border-top:1px solid rgba(26,26,62,0.08)}
+.value-num{
+  font-family:'Outfit',sans-serif;font-size:13px;font-weight:400;
+  color:rgba(26,26,62,0.3);white-space:nowrap;min-width:28px;
+}
+.value-title{
+  font-family:'Unbounded',sans-serif;
+  font-size:clamp(1rem,2vw,1.5rem);
+  font-weight:700;text-transform:uppercase;color:#1A1A3E;
+  margin-bottom:6px;
+}
+.value-desc{
+  font-family:'Outfit',sans-serif;font-size:clamp(13px,1.2vw,15px);
+  font-weight:300;color:rgba(26,26,62,0.5);line-height:1.6;
+}
+.value-content{flex:1}
+
+/* ─── HOW WE WORK ─── */
+.how-we-work{
+  padding:clamp(80px,12vw,160px) clamp(24px,5vw,80px);
+  background:#FF7F5C;
+}
+.how-heading{
+  font-family:'Unbounded',sans-serif;
+  font-size:clamp(1.8rem,4vw,3rem);
+  font-weight:700;text-transform:uppercase;color:#FFFFFF;
+  text-align:center;margin-bottom:clamp(40px,6vw,64px);
+}
+.how-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,3vw,40px);
   max-width:1000px;margin:0 auto;
 }
-.ethos-card{
+.how-card{
   background:#FFFFFF;border-radius:16px;
   padding:clamp(32px,4vw,48px);
   box-shadow:0 8px 40px rgba(26,26,62,0.06);
-  text-align:center;
 }
-.ethos-symbol{
-  font-size:3rem;color:#FF7F5C;margin-bottom:20px;display:block;
-}
-.ethos-title{
+.how-card-title{
   font-family:'Unbounded',sans-serif;font-size:clamp(1rem,1.8vw,1.4rem);
   font-weight:700;text-transform:uppercase;color:#1A1A3E;margin-bottom:12px;
 }
-.ethos-desc{
+.how-card-desc{
   font-family:'Outfit',sans-serif;font-size:clamp(13px,1.2vw,15px);
   font-weight:300;color:rgba(26,26,62,0.5);line-height:1.6;
+}
+
+/* ─── LEADERS ─── */
+.leaders{
+  padding:clamp(80px,12vw,160px) clamp(24px,5vw,80px);
+  background:#F5F0E8;
+}
+.leaders-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,3vw,40px);
+  max-width:1000px;margin:0 auto;margin-bottom:clamp(40px,6vw,64px);
+}
+.leader-card{
+  background:#FFFFFF;border-radius:16px;
+  padding:clamp(32px,4vw,48px);
+  box-shadow:0 8px 40px rgba(26,26,62,0.06);
+  transition:transform 0.4s cubic-bezier(0.25,0.8,0.25,1),box-shadow 0.4s cubic-bezier(0.25,0.8,0.25,1);
+}
+.leader-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 16px 60px rgba(26,26,62,0.12);
+}
+.leader-avatar{
+  width:64px;height:64px;border-radius:50%;
+  background:rgba(26,26,62,0.06);margin-bottom:20px;
+}
+.leader-name{
+  font-family:'Unbounded',sans-serif;font-size:clamp(1rem,1.8vw,1.4rem);
+  font-weight:700;text-transform:uppercase;color:#1A1A3E;margin-bottom:12px;
+}
+.leader-bio{
+  font-family:'Outfit',sans-serif;font-size:clamp(13px,1.2vw,15px);
+  font-weight:300;color:rgba(26,26,62,0.5);line-height:1.6;
+}
+.leaders-strip{
+  max-width:800px;margin:0 auto;text-align:center;
+  font-family:'Outfit',sans-serif;font-size:clamp(13px,1.2vw,15px);
+  font-weight:300;color:rgba(26,26,62,0.5);line-height:1.7;
 }
 
 /* ─── CTA FORM ─── */
@@ -540,9 +560,13 @@ nav{
   color:rgba(255,255,255,0.25);
 }
 
-/* ─── REVEAL VARIANTS ─── */
+/* ─── REVEAL ANIMATIONS ─── */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.9s cubic-bezier(0.25,0.8,0.25,1),transform 0.9s cubic-bezier(0.25,0.8,0.25,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
 .reveal-left{opacity:0;transform:translateX(-40px);transition:opacity 0.9s cubic-bezier(0.25,0.8,0.25,1),transform 0.9s cubic-bezier(0.25,0.8,0.25,1)}
 .reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(40px);transition:opacity 0.9s cubic-bezier(0.25,0.8,0.25,1),transform 0.9s cubic-bezier(0.25,0.8,0.25,1)}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
 .stagger-reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s cubic-bezier(0.25,0.8,0.25,1),transform 0.7s cubic-bezier(0.25,0.8,0.25,1)}
 .stagger-reveal.visible{opacity:1;transform:translateY(0)}
 
@@ -550,12 +574,16 @@ nav{
 @media(max-width:768px){
   .nav-links{display:none}
   .hero h1{font-size:clamp(2rem,10vw,4rem)}
-  .manifesto h2{font-size:clamp(1.2rem,5vw,2rem)}
+  .mission h2{font-size:clamp(1.2rem,5vw,2rem)}
+  .cat-grid{grid-template-columns:1fr}
   .portfolio-grid{grid-template-columns:1fr}
-  .ethos-grid{grid-template-columns:1fr}
+  .capital-inner{grid-template-columns:1fr}
+  .stats-row{grid-template-columns:1fr;gap:48px}
+  .how-grid{grid-template-columns:1fr}
+  .leaders-grid{grid-template-columns:1fr}
   .cta-inner{grid-template-columns:1fr}
-  .career-item{flex-direction:column;align-items:flex-start;gap:8px}
-  .career-meta{gap:12px}
+  .talent-item{flex-direction:column;align-items:flex-start;gap:8px}
+  .talent-meta{gap:12px}
   .footer-inner{grid-template-columns:1fr;text-align:center}
   .footer-links{text-align:center}
   .footer-contact{text-align:center}
@@ -568,10 +596,11 @@ nav{
 <nav>
   <div class="nav-logo">Care & Bloom</div>
   <div class="nav-links">
-    <a href="#pillars">Pillars</a>
-    <a href="#beliefs">Beliefs</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#careers">Careers</a>
+    <a href="#mission">Mission</a>
+    <a href="#brands">Brands</a>
+    <a href="#capital">Capital</a>
+    <a href="#talents">Talents</a>
+    <a href="#about">About</a>
     <a href="#contact">Let's Talk</a>
   </div>
 </nav>
@@ -580,7 +609,7 @@ nav{
 <section class="hero">
   <svg class="bloom" viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg"><path d="M12.5798 12.6486C12.5798 11.9426 12.5445 11.2752 12.5798 10.6142C12.6729 9.14911 13.1898 7.81912 14.2076 6.77539C16.4391 4.49013 18.7332 2.2724 21.0193 0C21.061 0.0369888 21.1445 0.101317 21.2167 0.175294C23.2877 2.24506 25.365 4.30679 27.4248 6.38781C29.0301 8.01693 29.6611 9.98699 29.3512 12.2562C29.3352 12.3736 29.3239 12.491 29.3079 12.6502C29.4588 12.6389 29.5856 12.6357 29.7124 12.618C31.9295 12.3157 33.8864 12.893 35.4918 14.4626C37.651 16.5758 39.7702 18.7308 41.9133 20.8665C41.9406 20.8955 41.9615 20.9309 42.0016 20.9823C41.9374 21.0595 41.8764 21.1431 41.8042 21.2155C39.7445 23.2789 37.6912 25.3454 35.6234 27.3991C33.9876 29.0218 32.0129 29.6634 29.7317 29.3547C29.6145 29.3386 29.4957 29.3289 29.3319 29.3112C29.3448 29.4608 29.348 29.5879 29.3657 29.7133C29.6675 31.9342 29.0863 33.8946 27.5179 35.4932C25.4148 37.6466 23.27 39.755 21.1477 41.881C21.1108 41.918 21.0658 41.947 21 42.0016C20.8925 41.9003 20.7849 41.807 20.6789 41.7057C18.6754 39.7019 16.6714 37.6986 14.6668 35.6958C12.9587 33.9992 12.2924 31.9664 12.6488 29.5846C12.66 29.5074 12.6617 29.4238 12.6713 29.3016L12.1495 29.3659C10.0256 29.6248 8.12805 29.0861 6.58689 27.5889C4.39072 25.4564 2.25235 23.2676 0.0850851 21.1029C0.0538881 21.066 0.0254498 21.0267 0 20.9855C0.054583 20.9196 0.10435 20.844 0.160538 20.7813C2.23362 18.7099 4.30617 16.6402 6.37819 14.572C8.02691 12.9332 10.0144 12.3012 12.3181 12.6261C12.4128 12.6405 12.5172 12.6438 12.5798 12.6486Z" fill="#FF7F5C" opacity="0.15"/></svg>
   <div class="hero-content">
-    <p class="label-sm">Brand House · Est. 2021</p>
+    <p class="label-sm">Brand House &middot; Est. 2021</p>
     <h1><span class="light">The house</span><br><span class="light">that <span class="accent">health</span></span><br><span class="heavy built">built.</span></h1>
     <p class="sub">Growth buys you abundance. Abundance buys you the right to solve the problems that actually matter. We picked five.</p>
   </div>
@@ -613,192 +642,333 @@ nav{
   </div>
 </div>
 
-<!-- MANIFESTO -->
-<section class="manifesto">
-  <div class="manifesto-inner">
-  <svg class="bloom-bg bloom" viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg"><path d="M12.5798 12.6486C12.5798 11.9426 12.5445 11.2752 12.5798 10.6142C12.6729 9.14911 13.1898 7.81912 14.2076 6.77539C16.4391 4.49013 18.7332 2.2724 21.0193 0C21.061 0.0369888 21.1445 0.101317 21.2167 0.175294C23.2877 2.24506 25.365 4.30679 27.4248 6.38781C29.0301 8.01693 29.6611 9.98699 29.3512 12.2562C29.3352 12.3736 29.3239 12.491 29.3079 12.6502C29.4588 12.6389 29.5856 12.6357 29.7124 12.618C31.9295 12.3157 33.8864 12.893 35.4918 14.4626C37.651 16.5758 39.7702 18.7308 41.9133 20.8665C41.9406 20.8955 41.9615 20.9309 42.0016 20.9823C41.9374 21.0595 41.8764 21.1431 41.8042 21.2155C39.7445 23.2789 37.6912 25.3454 35.6234 27.3991C33.9876 29.0218 32.0129 29.6634 29.7317 29.3547C29.6145 29.3386 29.4957 29.3289 29.3319 29.3112C29.3448 29.4608 29.348 29.5879 29.3657 29.7133C29.6675 31.9342 29.0863 33.8946 27.5179 35.4932C25.4148 37.6466 23.27 39.755 21.1477 41.881C21.1108 41.918 21.0658 41.947 21 42.0016C20.8925 41.9003 20.7849 41.807 20.6789 41.7057C18.6754 39.7019 16.6714 37.6986 14.6668 35.6958C12.9587 33.9992 12.2924 31.9664 12.6488 29.5846C12.66 29.5074 12.6617 29.4238 12.6713 29.3016L12.1495 29.3659C10.0256 29.6248 8.12805 29.0861 6.58689 27.5889C4.39072 25.4564 2.25235 23.2676 0.0850851 21.1029C0.0538881 21.066 0.0254498 21.0267 0 20.9855C0.054583 20.9196 0.10435 20.844 0.160538 20.7813C2.23362 18.7099 4.30617 16.6402 6.37819 14.572C8.02691 12.9332 10.0144 12.3012 12.3181 12.6261C12.4128 12.6405 12.5172 12.6438 12.5798 12.6486Z" fill="#FFFFFF" opacity="0.08"/></svg>
-  <div class="manifesto-content reveal">
-    <h2>We got lucky. We built things. We made money. And then we asked: <span class="now-what">now what?</span> Not more exits. Not more SaaS.</h2>
-    <p class="manifesto-line2">
-      <span class="scroll-word" data-order="1">The stuff that actually matters —</span>
-      <span class="scroll-word" data-order="2" data-lit="navy">your body,</span>
-      <span class="scroll-word" data-order="3" data-lit="navy">your pleasure,</span>
-      <span class="scroll-word" data-order="4" data-lit="navy">your time</span>
-      <span class="scroll-word" data-order="5">on earth.</span>
-    </p>
-  </div>
+<!-- MISSION -->
+<section class="mission" id="mission">
+  <div class="mission-inner">
+    <svg class="bloom-bg bloom" viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg"><path d="M12.5798 12.6486C12.5798 11.9426 12.5445 11.2752 12.5798 10.6142C12.6729 9.14911 13.1898 7.81912 14.2076 6.77539C16.4391 4.49013 18.7332 2.2724 21.0193 0C21.061 0.0369888 21.1445 0.101317 21.2167 0.175294C23.2877 2.24506 25.365 4.30679 27.4248 6.38781C29.0301 8.01693 29.6611 9.98699 29.3512 12.2562C29.3352 12.3736 29.3239 12.491 29.3079 12.6502C29.4588 12.6389 29.5856 12.6357 29.7124 12.618C31.9295 12.3157 33.8864 12.893 35.4918 14.4626C37.651 16.5758 39.7702 18.7308 41.9133 20.8665C41.9406 20.8955 41.9615 20.9309 42.0016 20.9823C41.9374 21.0595 41.8764 21.1431 41.8042 21.2155C39.7445 23.2789 37.6912 25.3454 35.6234 27.3991C33.9876 29.0218 32.0129 29.6634 29.7317 29.3547C29.6145 29.3386 29.4957 29.3289 29.3319 29.3112C29.3448 29.4608 29.348 29.5879 29.3657 29.7133C29.6675 31.9342 29.0863 33.8946 27.5179 35.4932C25.4148 37.6466 23.27 39.755 21.1477 41.881C21.1108 41.918 21.0658 41.947 21 42.0016C20.8925 41.9003 20.7849 41.807 20.6789 41.7057C18.6754 39.7019 16.6714 37.6986 14.6668 35.6958C12.9587 33.9992 12.2924 31.9664 12.6488 29.5846C12.66 29.5074 12.6617 29.4238 12.6713 29.3016L12.1495 29.3659C10.0256 29.6248 8.12805 29.0861 6.58689 27.5889C4.39072 25.4564 2.25235 23.2676 0.0850851 21.1029C0.0538881 21.066 0.0254498 21.0267 0 20.9855C0.054583 20.9196 0.10435 20.844 0.160538 20.7813C2.23362 18.7099 4.30617 16.6402 6.37819 14.572C8.02691 12.9332 10.0144 12.3012 12.3181 12.6261C12.4128 12.6405 12.5172 12.6438 12.5798 12.6486Z" fill="#FFFFFF" opacity="0.08"/></svg>
+    <div class="mission-content reveal">
+      <h2>We focus on health categories where people need more than content or commerce. They need products they can believe in, advice they can use, and brands that respect the stakes.</h2>
+      <p class="mission-line2">
+        <span class="scroll-word" data-order="1">Build</span>
+        <span class="scroll-word" data-order="2">where trust</span>
+        <span class="scroll-word" data-order="3" data-lit="navy">changes</span>
+        <span class="scroll-word" data-order="4" data-lit="navy">behavior.</span>
+      </p>
+    </div>
   </div>
 </section>
 
-<!-- PILLARS -->
-<div class="pillars-wrap" id="pillars">
-  <div class="pillars-sticky">
-    <span class="pillars-label">Five Verticals</span>
-
-    <div class="pillar-card" data-index="0">
-      <img class="pillar-img" src="https://images.unsplash.com/photo-1557800636-894a64c1696f?w=600&h=400&fit=crop" alt="Citrus fruits">
-      <div class="pillar-num">01</div>
-      <div class="pillar-name">Pleasure</div>
-      <p class="pillar-desc">Follow your appetite.</p>
-      <span class="pillar-status live">Live — Nancy & Biird</span>
+<!-- FOUR CATEGORIES -->
+<section class="categories" id="categories">
+  <p class="section-label reveal">Four Areas</p>
+  <h2 class="section-heading reveal">One standard. Four categories.</h2>
+  <div class="cat-grid">
+    <div class="cat-card stagger-reveal" data-stagger="0">
+      <span class="cat-num">01</span>
+      <div class="cat-name orange">Sexual health</div>
+      <p class="cat-desc">Care for intimacy, hormones, fertility, pleasure, and agency still asks people to navigate stigma. We build brands that make the category easier to enter and safer to trust.</p>
     </div>
-    <div class="pillar-card" data-index="1">
-      <img class="pillar-img" src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&h=400&fit=crop" alt="Fresh ingredients">
-      <div class="pillar-num">02</div>
-      <div class="pillar-name">Longevity</div>
-      <p class="pillar-desc">Stay longer, stay well.</p>
-      <span class="pillar-status">Coming Soon</span>
+    <div class="cat-card stagger-reveal" data-stagger="1">
+      <span class="cat-num">02</span>
+      <div class="cat-name blue">Longevity</div>
+      <p class="cat-desc">Longevity is moving from abstract promises to practical healthspan: energy, recovery, prevention, metabolic health, and routines people can keep.</p>
     </div>
-    <div class="pillar-card" data-index="2">
-      <img class="pillar-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop&crop=entropy" alt="Books and objects">
-      <div class="pillar-num">03</div>
-      <div class="pillar-name">Education</div>
-      <p class="pillar-desc">Learn to live.</p>
-      <span class="pillar-status">Coming Soon</span>
+    <div class="cat-card stagger-reveal" data-stagger="2">
+      <span class="cat-num">03</span>
+      <div class="cat-name orange">Mental health</div>
+      <p class="cat-desc">People need support that feels accessible and human, with enough clinical seriousness to be trusted and enough cultural fluency to be used.</p>
     </div>
-    <div class="pillar-card" data-index="3">
-      <img class="pillar-img" src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=600&h=400&fit=crop" alt="Textiles and fabric">
-      <div class="pillar-num">04</div>
-      <div class="pillar-name">Culture</div>
-      <p class="pillar-desc">Wear it well.</p>
-      <span class="pillar-status">Coming Soon</span>
-    </div>
-    <div class="pillar-card" data-index="4">
-      <img class="pillar-img" src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&h=400&fit=crop" alt="Calm nature scene">
-      <div class="pillar-num">05</div>
-      <div class="pillar-name">Mind</div>
-      <p class="pillar-desc">Be here.</p>
-      <span class="pillar-status">Coming Soon</span>
-    </div>
-
-    <div class="pillar-progress">
-      <div class="pillar-dot active" data-dot="0"></div>
-      <div class="pillar-dot" data-dot="1"></div>
-      <div class="pillar-dot" data-dot="2"></div>
-      <div class="pillar-dot" data-dot="3"></div>
-      <div class="pillar-dot" data-dot="4"></div>
+    <div class="cat-card stagger-reveal" data-stagger="3">
+      <span class="cat-num">04</span>
+      <div class="cat-name blue">Education</div>
+      <p class="cat-desc">Better health decisions start with language people understand. Education turns expert knowledge into routines, confidence, and behavior change.</p>
     </div>
   </div>
-</div>
-
-<!-- STATS -->
-<section class="stats reveal">
-  <div class="stats-number" id="stats-counter">$0T</div>
-  <p class="stats-label">The global wellness economy</p>
-  <hr class="stats-line">
 </section>
 
-<!-- PORTFOLIO -->
-<section class="portfolio" id="portfolio">
-  <p class="section-label">The House</p>
+<!-- BRANDS -->
+<section class="brands" id="brands">
+  <p class="section-label reveal">The House</p>
+  <p class="brands-intro reveal">Our portfolio starts where trust is hardest to earn. Today, Care & Bloom operates in sexual wellness, with new brands planned across longevity, mental health, and education.</p>
+  <p class="brands-sublabel reveal">[01] Sexual wellness</p>
   <div class="portfolio-grid">
     <div class="portfolio-card reveal">
       <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600&h=400&fit=crop" alt="Hello Nancy products">
       <div class="portfolio-card-body">
-        <span class="portfolio-tag">Pleasure</span>
+        <span class="portfolio-tag">Sexual wellness</span>
         <div class="portfolio-title orange">hello nancy</div>
-        <p class="portfolio-desc">Sexual wellness for people who care about what they put on their bodies.</p>
+        <p class="portfolio-desc">A direct-to-consumer sexual wellness brand making intimacy products and education feel discreet, accessible, and easier to begin.</p>
         <span class="portfolio-status"><span class="status-dot"></span> Live</span>
+        <a href="https://hellonancy.com" target="_blank" class="portfolio-link">hellonancy.com</a>
       </div>
     </div>
     <div class="portfolio-card reveal">
       <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop" alt="Biird design objects">
       <div class="portfolio-card-body">
-        <span class="portfolio-tag">Pleasure</span>
+        <span class="portfolio-tag">Sexual wellness</span>
         <div class="portfolio-title blue">biird</div>
-        <p class="portfolio-desc">Beautiful objects designed for private moments.</p>
+        <p class="portfolio-desc">A design-led intimate wellness brand making toys and accessories feel more approachable, expressive, and comfortable to buy.</p>
         <span class="portfolio-status"><span class="status-dot"></span> Live</span>
+        <a href="https://heybiird.com" target="_blank" class="portfolio-link">heybiird.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="coming-soon-pills reveal">
+    <span class="pill">Longevity — Coming Soon</span>
+    <span class="pill">Mental Health — Coming Soon</span>
+    <span class="pill">Education — Coming Soon</span>
+  </div>
+</section>
+
+<!-- CAPITAL -->
+<section class="capital" id="capital">
+  <p class="section-label reveal">Capital</p>
+  <div class="capital-inner">
+    <div class="capital-left reveal">
+      <p class="capital-intro">Care & Bloom partners with founders, operators, investors, and brand owners building consumer health companies where trust determines the ceiling.</p>
+      <p class="capital-intro">We bring more than money: manufacturing access, category fluency, operating speed, partner ownership, and regional distribution depth.</p>
+      <a href="mailto:hello@carenbloom.com?subject=Pitch" class="btn-pitch">Pitch us</a>
+    </div>
+    <ul class="capital-criteria reveal">
+      <li class="criterion">
+        <div class="criterion-num">01</div>
+        <div class="criterion-title">Categories where confidence matters</div>
+        <p class="criterion-desc">Health categories where the customer needs to trust the brand before they buy — and where that trust is hard to earn at scale.</p>
+      </li>
+      <li class="criterion">
+        <div class="criterion-num">02</div>
+        <div class="criterion-title">Operators with signal</div>
+        <p class="criterion-desc">Founders who have already shown taste, speed, or insight in a related category — even if they haven't built this exact company before.</p>
+      </li>
+      <li class="criterion">
+        <div class="criterion-num">03</div>
+        <div class="criterion-title">Operating moats</div>
+        <p class="criterion-desc">Advantages that compound with time: formulations, supply chains, clinical partnerships, community density, or regulatory know-how.</p>
+      </li>
+      <li class="criterion">
+        <div class="criterion-num">04</div>
+        <div class="criterion-title">Shared upside</div>
+        <p class="criterion-desc">We prefer partnerships where incentives are aligned and both sides have meaningful ownership and meaningful work.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<section class="stats-strip">
+  <div class="stats-row">
+    <div class="reveal">
+      <div class="stat-value" id="stats-counter">$0M+</div>
+      <p class="stat-desc">Sales trajectory in consumer wellness.</p>
+    </div>
+    <div class="reveal">
+      <div class="stat-value">Small</div>
+      <p class="stat-desc">Team with hands-on brand, growth, and operating ownership.</p>
+    </div>
+    <div class="reveal">
+      <div class="stat-value">High</div>
+      <p class="stat-desc">Ambition, agency, and pressure to move the number.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TALENTS -->
+<section class="talents" id="talents">
+  <p class="section-label white-dim reveal">Talents</p>
+  <div class="talents-header reveal">
+    <h2>Builders wanted.</h2>
+    <p>We are looking for people with sharp taste, urgency, and proof they can move.</p>
+  </div>
+  <div class="talents-list">
+    <div class="talent-item reveal">
+      <div class="talent-role">Product & Project Manager</div>
+      <div class="talent-meta">
+        <span class="talent-tag">On-site, Shenzhen</span>
+        <span class="talent-tag">Full Time</span>
+        <span class="talent-arrow">&rarr;</span>
+      </div>
+    </div>
+    <div class="talent-item reveal">
+      <div class="talent-role">Product Marketing Lead</div>
+      <div class="talent-meta">
+        <span class="talent-tag">Remote</span>
+        <span class="talent-tag">Full Time</span>
+        <span class="talent-arrow">&rarr;</span>
+      </div>
+    </div>
+    <div class="talent-item reveal">
+      <div class="talent-role">Graphic Designer</div>
+      <div class="talent-meta">
+        <span class="talent-tag">Remote</span>
+        <span class="talent-tag">Full Time</span>
+        <span class="talent-arrow">&rarr;</span>
+      </div>
+    </div>
+    <div class="talent-item reveal">
+      <div class="talent-role">Video Editor</div>
+      <div class="talent-meta">
+        <span class="talent-tag">Remote</span>
+        <span class="talent-tag">Full Time</span>
+        <span class="talent-arrow">&rarr;</span>
+      </div>
+    </div>
+    <div class="talent-item reveal">
+      <div class="talent-role">Creative Strategist, Performance Marketing</div>
+      <div class="talent-meta">
+        <span class="talent-tag">Remote</span>
+        <span class="talent-tag">Full Time</span>
+        <span class="talent-arrow">&rarr;</span>
+      </div>
+    </div>
+    <div class="talent-item reveal">
+      <div class="talent-role">Head of Performance Marketing</div>
+      <div class="talent-meta">
+        <span class="talent-tag">On-site, Hong Kong</span>
+        <span class="talent-tag">Full Time</span>
+        <span class="talent-arrow">&rarr;</span>
+      </div>
+    </div>
+    <div class="talent-item reveal">
+      <div class="talent-role">Chief of Staff</div>
+      <div class="talent-meta">
+        <span class="talent-tag">On-site, Hong Kong</span>
+        <span class="talent-tag">Full Time</span>
+        <span class="talent-arrow">&rarr;</span>
+      </div>
+    </div>
+    <div class="talent-item reveal">
+      <div class="talent-role">Community Manager</div>
+      <div class="talent-meta">
+        <span class="talent-tag">On-site, Hong Kong</span>
+        <span class="talent-tag">Full Time</span>
+        <span class="talent-arrow">&rarr;</span>
+      </div>
+    </div>
+    <div class="talent-item reveal">
+      <div class="talent-role">Growth Lead, Mobile Apps</div>
+      <div class="talent-meta">
+        <span class="talent-tag">Remote</span>
+        <span class="talent-tag">Full Time</span>
+        <span class="talent-arrow">&rarr;</span>
+      </div>
+    </div>
+    <div class="talent-item reveal">
+      <div class="talent-role">Social Media Strategist</div>
+      <div class="talent-meta">
+        <span class="talent-tag">Remote</span>
+        <span class="talent-tag">Full Time</span>
+        <span class="talent-arrow">&rarr;</span>
+      </div>
+    </div>
+    <div class="talent-item reveal">
+      <div class="talent-role">Entrepreneur-in-Residence</div>
+      <div class="talent-meta">
+        <span class="talent-tag">Remote</span>
+        <span class="talent-tag">Full Time</span>
+        <span class="talent-arrow">&rarr;</span>
+      </div>
+    </div>
+    <div class="talent-item reveal">
+      <div class="talent-role">AI-Native Product Manager, Apps</div>
+      <div class="talent-meta">
+        <span class="talent-tag">Remote</span>
+        <span class="talent-tag">Full Time</span>
+        <span class="talent-arrow">&rarr;</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- BELIEFS -->
-<section class="beliefs" id="beliefs">
-  <p class="section-label white-dim">What We Believe</p>
-  <div class="beliefs-list">
-    <div class="belief-item reveal-left">
-      <span class="belief-num">01</span>
-      <span class="belief-text">We don't advise. We operate.</span>
+<!-- VALUES -->
+<section class="values" id="about">
+  <p class="section-label reveal">What We Value</p>
+  <h2 class="section-heading reveal">How we raise the ceiling.</h2>
+  <div class="values-list">
+    <div class="value-item reveal-left">
+      <span class="value-num">01</span>
+      <div class="value-content">
+        <div class="value-title">Outsized ambition</div>
+        <p class="value-desc">We set targets that feel uncomfortable. If the goal doesn't create tension, it isn't big enough to change the trajectory.</p>
+      </div>
     </div>
-    <div class="belief-item reveal-left">
-      <span class="belief-num">02</span>
-      <span class="belief-text">Physical moats over digital shortcuts.</span>
+    <div class="value-item reveal-right">
+      <span class="value-num">02</span>
+      <div class="value-content">
+        <div class="value-title">Agency</div>
+        <p class="value-desc">We hire people who move before being asked. Ownership means you see the gap, fill it, and tell us after.</p>
+      </div>
     </div>
-    <div class="belief-item reveal-left">
-      <span class="belief-num">03</span>
-      <span class="belief-text">AI-native from day one.</span>
+    <div class="value-item reveal-left">
+      <span class="value-num">03</span>
+      <div class="value-content">
+        <div class="value-title">Reduce cycle time</div>
+        <p class="value-desc">Speed is a value, not a tactic. Shorter loops between decision and result mean faster learning and fewer wasted months.</p>
+      </div>
     </div>
-    <div class="belief-item reveal-left">
-      <span class="belief-num">04</span>
-      <span class="belief-text">Partner-owned, founder-led.</span>
+    <div class="value-item reveal-right">
+      <span class="value-num">04</span>
+      <div class="value-content">
+        <div class="value-title">Relentless upskilling</div>
+        <p class="value-desc">Every quarter, the bar moves. We invest in people who invest in themselves — and we expect the gap between today and last quarter to be visible.</p>
+      </div>
+    </div>
+    <div class="value-item reveal-left">
+      <span class="value-num">05</span>
+      <div class="value-content">
+        <div class="value-title">Organic (re)org</div>
+        <p class="value-desc">Roles evolve as the company evolves. We don't protect titles — we protect momentum. The best people end up where they create the most value.</p>
+      </div>
+    </div>
+    <div class="value-item reveal-right">
+      <span class="value-num">06</span>
+      <div class="value-content">
+        <div class="value-title">Human potential</div>
+        <p class="value-desc">We believe most people are capable of far more than they've been asked to do. We ask more.</p>
+      </div>
+    </div>
+    <div class="value-item reveal-left">
+      <span class="value-num">07</span>
+      <div class="value-content">
+        <div class="value-title">Creativity</div>
+        <p class="value-desc">Original thinking is a competitive advantage. We reward ideas that are surprising, specific, and brave enough to be wrong.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ETHOS -->
-<section class="ethos">
-  <p class="section-label">How We Work</p>
-  <div class="ethos-grid">
-    <div class="ethos-card stagger-reveal" data-stagger="0">
-      <span class="ethos-symbol">&#9670;</span>
-      <div class="ethos-title">Operators</div>
-      <p class="ethos-desc">We don't write decks. We run companies.</p>
+<!-- HOW WE WORK -->
+<section class="how-we-work">
+  <p class="section-label white-dim reveal">How We Work Together</p>
+  <h2 class="how-heading reveal">Focused teams. Player coaches.</h2>
+  <div class="how-grid">
+    <div class="how-card stagger-reveal" data-stagger="0">
+      <div class="how-card-title">Pilot and co-pilot teams</div>
+      <p class="how-card-desc">Small pods own specific KPIs with a clear pilot, a strong co-pilot, a visible scorecard, and enough autonomy to move within the day.</p>
     </div>
-    <div class="ethos-card stagger-reveal" data-stagger="1">
-      <span class="ethos-symbol">&#10022;</span>
-      <div class="ethos-title">Builders</div>
-      <p class="ethos-desc">Supply chains, formulations, regulatory — the hard stuff.</p>
-    </div>
-    <div class="ethos-card stagger-reveal" data-stagger="2">
-      <span class="ethos-symbol">&#9672;</span>
-      <div class="ethos-title">Partners</div>
-      <p class="ethos-desc">Skin in the game. We build alongside founders.</p>
+    <div class="how-card stagger-reveal" data-stagger="1">
+      <div class="how-card-title">Player coaches</div>
+      <p class="how-card-desc">Senior owners coach and play: they build the system, mentor the team, and personally take the hardest position when an area is new, broken, or below floor.</p>
     </div>
   </div>
 </section>
 
-<!-- CAREERS -->
-<section class="careers" id="careers">
-  <div class="careers-header reveal">
-    <h2>Join the house</h2>
-    <p>We're building something different. These roles are open now.</p>
-  </div>
-  <div class="careers-list">
-    <div class="career-item reveal">
-      <div class="career-role">Brand Manager</div>
-      <div class="career-meta">
-        <span class="career-tag">Singapore</span>
-        <span class="career-tag">Full-time</span>
-        <span class="career-arrow">→</span>
-      </div>
+<!-- LEADERS -->
+<section class="leaders">
+  <p class="section-label reveal">Leaders</p>
+  <h2 class="section-heading reveal">Builders at the center.</h2>
+  <div class="leaders-grid">
+    <div class="leader-card reveal">
+      <div class="leader-avatar"></div>
+      <div class="leader-name">Rahul Ramchand</div>
+      <p class="leader-bio">Previously CMO at IM8, helping scale the consumer health brand to $100M+ ARR in under 12 months, and now building Care & Bloom's brand and distribution engine.</p>
     </div>
-    <div class="career-item reveal">
-      <div class="career-role">Operations Lead</div>
-      <div class="career-meta">
-        <span class="career-tag">Remote</span>
-        <span class="career-tag">Full-time</span>
-        <span class="career-arrow">→</span>
-      </div>
-    </div>
-    <div class="career-item reveal">
-      <div class="career-role">Supply Chain Coordinator</div>
-      <div class="career-meta">
-        <span class="career-tag">Singapore</span>
-        <span class="career-tag">Full-time</span>
-        <span class="career-arrow">→</span>
-      </div>
-    </div>
-    <div class="career-item reveal">
-      <div class="career-role">Content & Community</div>
-      <div class="career-meta">
-        <span class="career-tag">Remote</span>
-        <span class="career-tag">Contract</span>
-        <span class="career-arrow">→</span>
-      </div>
+    <div class="leader-card reveal">
+      <div class="leader-avatar"></div>
+      <div class="leader-name">Momoko Kashiwabara</div>
+      <p class="leader-bio">Co-founder of Hello Nancy with Peak21 performance marketing experience across D2C brands including Raycon, Linjer, and Nutrition Kitchen.</p>
     </div>
   </div>
-  <p class="careers-note">Don't see your role? Reach out anyway — hello@careandbloom.com</p>
+  <p class="leaders-strip reveal">Our leaders and operators have worked around breakout consumer brands and platforms including IM8, CASETiFY, and Peak21.</p>
 </section>
 
 <!-- CTA + FORM -->
@@ -843,33 +1013,46 @@ nav{
       <a href="#">Instagram</a>
     </div>
     <div class="footer-contact">
-      <a href="mailto:hello@careandbloom.com">hello@careandbloom.com</a>
+      <a href="mailto:hello@carenbloom.com">hello@carenbloom.com</a>
     </div>
   </div>
   <div class="footer-bottom">&copy; 2024 Care &amp; Bloom. All rights reserved.</div>
 </footer>
 
 <script>
-// Reveal on scroll
+// ─── Reveal on scroll ───
 var observer = new IntersectionObserver(function(entries){
   entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible')});
 },{threshold:0.15});
 document.querySelectorAll('.reveal').forEach(function(el){observer.observe(el)});
 
-// Scroll-based word lighting for manifesto line 2
-var line2 = document.querySelector('.manifesto-line2');
+// ─── Reveal-left / reveal-right observers ───
+var revealDirObs = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.15});
+document.querySelectorAll('.reveal-left, .reveal-right').forEach(function(el){revealDirObs.observe(el)});
+
+// ─── Stagger reveal observer ───
+var staggerObs = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      var delay = parseInt(e.target.getAttribute('data-stagger') || '0') * 150;
+      setTimeout(function(){e.target.classList.add('visible')}, delay);
+    }
+  });
+},{threshold:0.15});
+document.querySelectorAll('.stagger-reveal').forEach(function(el){staggerObs.observe(el)});
+
+// ─── Scroll-based word lighting for mission line 2 ───
+var missionSection = document.querySelector('.mission');
 var scrollWords = document.querySelectorAll('.scroll-word');
 
-var manifestoSection = document.querySelector('.manifesto');
-
 function updateScrollWords(){
-  if(!line2 || !manifestoSection) return;
-  var mRect = manifestoSection.getBoundingClientRect();
-  var scrollTravel = manifestoSection.offsetHeight - window.innerHeight;
+  if(!missionSection) return;
+  var mRect = missionSection.getBoundingClientRect();
+  var scrollTravel = missionSection.offsetHeight - window.innerHeight;
   if(scrollTravel <= 0) return;
-  // Progress based on how far through the manifesto section we've scrolled
   var progress = Math.max(0, Math.min(1, -mRect.top / scrollTravel));
-  // Only start word reveal after 40% of manifesto scroll (first part is reading the top text)
   progress = Math.max(0, (progress - 0.4) / 0.5);
 
   scrollWords.forEach(function(word){
@@ -885,113 +1068,18 @@ function updateScrollWords(){
   });
 }
 
-// ─── PILLARS: horizontal scroll with flick ───
-var pillarsWrap = document.querySelector('.pillars-wrap');
-var pillarCards = document.querySelectorAll('.pillar-card');
-var pillarDots = document.querySelectorAll('.pillar-dot');
-var totalPillars = pillarCards.length;
-
-// Flick directions — each card flies off a different way
-var flickAngles = [
-  {rotate: -15, x: -120, y: -40},   // top-left
-  {rotate: 12,  x: 110,  y: -30},   // top-right
-  {rotate: -8,  x: -100, y: 50},    // bottom-left
-  {rotate: 18,  x: 130,  y: 20},    // right
-  {rotate: -10, x: -80,  y: -50},   // top-left
-];
-
-function updatePillars(){
-  if(!pillarsWrap) return;
-  var rect = pillarsWrap.getBoundingClientRect();
-  var scrollTravel = pillarsWrap.offsetHeight - window.innerHeight;
-  if(scrollTravel <= 0) return;
-
-  var rawProgress = Math.max(0, Math.min(1, -rect.top / scrollTravel));
-  // Map progress to card index (0 to totalPillars-1)
-  var cardProgress = rawProgress * totalPillars;
-
-  pillarCards.forEach(function(card, i){
-    var localProgress = cardProgress - i; // -N to +N range per card
-
-    if(localProgress < -0.5){
-      // Not yet visible — waiting below/behind
-      card.style.transform = 'translate(-50%, -50%) scale(0.9) rotate(0deg)';
-      card.style.opacity = '0';
-      card.style.left = '50%';
-      card.style.top = '50%';
-    } else if(localProgress >= -0.5 && localProgress < 0.5){
-      // Currently active — centered
-      var enterProgress = localProgress + 0.5; // 0 to 1
-      card.style.transform = 'translate(-50%, -50%) scale(' + (0.9 + 0.1 * enterProgress) + ') rotate(0deg)';
-      card.style.opacity = '1';
-      card.style.left = '50%';
-      card.style.top = '50%';
-      card.style.zIndex = totalPillars - i;
-    } else {
-      // Flicking away
-      var flickProgress = Math.min(1, (localProgress - 0.5) * 2); // 0 to 1
-      var flick = flickAngles[i % flickAngles.length];
-      var ease = flickProgress * flickProgress; // ease-in
-
-      var rot = flick.rotate * ease;
-      var tx = flick.x * ease;
-      var ty = flick.y * ease;
-      var s = 1 - (0.3 * ease);
-
-      card.style.transform = 'translate(calc(-50% + ' + tx + '%), calc(-50% + ' + ty + '%)) scale(' + s + ') rotate(' + rot + 'deg)';
-      card.style.opacity = String(1 - ease);
-      card.style.left = '50%';
-      card.style.top = '50%';
-      card.style.zIndex = 0;
-    }
-  });
-
-  // Update dots
-  var activeIndex = Math.min(totalPillars - 1, Math.floor(cardProgress));
-  pillarDots.forEach(function(dot, i){
-    dot.classList.toggle('active', i === activeIndex);
-  });
-}
-
 window.addEventListener('scroll', function(){
-  requestAnimationFrame(function(){
-    updateScrollWords();
-    updatePillars();
-  });
+  requestAnimationFrame(updateScrollWords);
 }, {passive: true});
 
-// Initial call
-updatePillars();
-
-// ─── Reveal observers for new sections ───
-// Re-observe new .reveal elements
-document.querySelectorAll('.reveal').forEach(function(el){observer.observe(el)});
-
-// Reveal-left observer (beliefs slide in from left)
-var revealLeftObs = new IntersectionObserver(function(entries){
-  entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible')});
-},{threshold:0.15});
-document.querySelectorAll('.reveal-left').forEach(function(el){revealLeftObs.observe(el)});
-
-// Stagger reveal observer (ethos cards)
-var staggerObs = new IntersectionObserver(function(entries){
-  entries.forEach(function(e){
-    if(e.isIntersecting){
-      var delay = parseInt(e.target.getAttribute('data-stagger') || '0') * 100;
-      setTimeout(function(){e.target.classList.add('visible')}, delay);
-    }
-  });
-},{threshold:0.15});
-document.querySelectorAll('.stagger-reveal').forEach(function(el){staggerObs.observe(el)});
-
-// ─── Stats counter animation ───
+// ─── Stats counter animation ($100M+) ───
 var statsEl = document.getElementById('stats-counter');
 var statsAnimated = false;
 var statsObs = new IntersectionObserver(function(entries){
   entries.forEach(function(e){
     if(e.isIntersecting && !statsAnimated){
       statsAnimated = true;
-      animateCounter(statsEl, 0, 7.5, 2000);
+      animateCounter(statsEl, 0, 100, 2000);
     }
   });
 },{threshold:0.3});
@@ -1002,10 +1090,9 @@ function animateCounter(el, from, to, duration){
   function step(ts){
     if(!start) start = ts;
     var progress = Math.min((ts - start) / duration, 1);
-    // Ease out cubic
     var ease = 1 - Math.pow(1 - progress, 3);
-    var current = from + (to - from) * ease;
-    el.textContent = '$' + current.toFixed(1) + 'T';
+    var current = Math.round(from + (to - from) * ease);
+    el.textContent = '$' + current + 'M+';
     if(progress < 1) requestAnimationFrame(step);
   }
   requestAnimationFrame(step);
